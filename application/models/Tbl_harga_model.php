@@ -108,6 +108,30 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_tipe')->result();
     }
 
+
+    function get_all_harga()
+    {
+        $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
+        $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
+        $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
+        $this->db->order_by('id_harga', 'DESC');
+        return $this->db->get('tbl_harga')->result();
+    }
+
+    function get_all_harga_by_nama($nama)
+    {
+        $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
+        $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
+        $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
+        $this->db->like('tbl_tipe.nama_tipe', $nama);
+        $this->db->order_by('id_harga', 'DESC');
+        return $this->db->get('tbl_harga')->result();
+    }
+
     function get_all_harga_by_id($id)
     {
         $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');

@@ -23,7 +23,9 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <style>
-    .radio-button {}
+    .radio-button {
+        
+    }
 
     .radio-button input[type="radio"] {
         opacity: 0;
@@ -36,10 +38,10 @@
         background-color: #fff;
         padding: 10px 20px;
         font-family: sans-serif, Arial;
-        font-size: 14px;
+        font-size: 70%;
         border: 2px solid #444;
         border-radius: 15px;
-        width: 150px;
+        width: 30%;
         text-align: center;
     }
 
@@ -94,7 +96,7 @@
         <div class="container my-3">
             <nav class="navbar navbar-light bg-light justify-content-between shadow p-3 mb-5 bg-white"
                 style="border-radius: 25px;">
-                <a style="font-family: Arial, Helvetica, sans-serif;"><b>Jual HP</b></a>
+                <a href="<?php echo site_url('cek_harga')?>" ><b style="color: black;" >Jual HP</b></a>
                 <img src="<?= base_url('assets/img/logogsk.png') ?>" alt="" width="10%">
             </nav>
         </div>
@@ -129,14 +131,16 @@
                         
                         <form action="<?php echo site_url('cek_harga/detail_harga') ?>" method="get"
                             enctype="multipart/form-data" autocomplete="off">
+                              
                             <div class="radio-button">
-                                <input type="text" value="<?= $_SESSION['id'] ?>" name="id_tipe" hidden>
-                                <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Memori (Note : Pilih lainnya jika Apple Watch)</small></p>
+                            <input type="text" value="<?= $_SESSION['id'] ?>" name="id_tipe" hidden>
+                                <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Memori (Note : Pilih lainnya jika Apple Watch)</small></p>                        
                                 <?php foreach($memori as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_memori; ?><?php echo $row->id_memori; ?>" name="memori" value="<?php echo $row->id_memori; ?>" <?php if ($_SESSION['memori'] == $row->id_memori) echo 'checked'; ?>>
                                 <label for="<?php echo $row->nama_memori; ?><?php echo $row->id_memori; ?>"><?php echo $row->nama_memori; ?></label>
                                 <?php endforeach; ?>
                             </div>
+                        
                             <div class="radio-button">
                                 <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kondisi Handphone</small></p>
                                 <?php foreach($kondisi as $row) : ?>
@@ -144,6 +148,7 @@
                                 <label for="<?php echo $row->nama_kondisi; ?><?php echo $row->id_kondisi; ?>"><?php echo $row->nama_kondisi; ?></label>
                                 <?php endforeach; ?>
                             </div>
+                            
                             <div class="radio-button">
                                 <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kualifikasi Handphone</small></p>
                                 <?php foreach($kualifikasi as $row) : ?>
@@ -151,7 +156,7 @@
                                 <label for="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>"><?php echo $row->nama_kualifikasi; ?></label>
                                 <?php endforeach; ?>
                             </div>
-                                <br>
+                            <br>
                                 <button type="submit" class="btn btn-warning" style="border-radius:10px; width: 300px;"><b
                                         style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b></button>
                         </form>

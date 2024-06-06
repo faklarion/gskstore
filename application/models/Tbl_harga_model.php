@@ -147,6 +147,56 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_harga')->result();
     }
 
+    function get_all_memori_ada($id)
+    {
+        $this->db->select('tbl_memori.id_memori, tbl_memori.nama_memori');
+        $this->db->join('tbl_harga', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->where('tbl_harga.id_tipe', $id);
+        $this->db->group_by('tbl_memori.id_memori');
+        $this->db->order_by('id_harga', 'DESC');
+        return $this->db->get('tbl_memori')->result();
+    }
+
+    function get_all_tt()
+    {
+        $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
+        $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
+        $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
+        $this->db->where('tbl_harga.id_tipe in (23,24,40,41,42) AND tbl_harga.id_kondisi = 2');
+        $this->db->order_by('tbl_harga.id_tipe', 'DESC');
+        return $this->db->get('tbl_harga')->result();
+    }
+
+    function get_all_tt_by_id($id)
+    {
+        $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
+        $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
+        $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
+        $this->db->where('tbl_harga.id_tipe in (23,24,40,41,42) AND tbl_harga.id_kondisi = 2');
+        $this->db->order_by('tbl_harga.id_tipe', 'DESC');
+        $this->db->where('tbl_harga.id_harga', $id);
+        return $this->db->get('tbl_harga')->row();
+    }
+
+    function get_all_baru()
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_baru', 'DESC');
+        return $this->db->get('tbl_baru')->result();
+    }
+
+    function get_all_baru_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_baru', 'DESC');
+        $this->db->where('id_baru', $id);
+        return $this->db->get('tbl_baru')->row();
+    }
+
     // get data by id
     function get_by_id($id)
     {

@@ -36,10 +36,10 @@
         background-color: #fff;
         padding: 10px 20px;
         font-family: sans-serif, Arial;
-        font-size: 14px;
+        font-size: 70%;
         border: 2px solid #444;
         border-radius: 15px;
-        width: 150px;
+        width: 30%;
         text-align: center;
     }
 
@@ -94,7 +94,7 @@
         <div class="container my-3">
             <nav class="navbar navbar-light bg-light justify-content-between shadow p-3 mb-5 bg-white"
                 style="border-radius: 25px;">
-                <a style="font-family: Arial, Helvetica, sans-serif;"><b>Jual HP</b></a>
+                <a href="<?php echo site_url('cek_harga')?>" ><b style="color: black;" >Jual HP</b></a>
                 <img src="<?= base_url('assets/img/logogsk.png') ?>" alt="" width="10%">
             </nav>
         </div>

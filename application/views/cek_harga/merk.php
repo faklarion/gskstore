@@ -106,8 +106,7 @@
                                 aria-hidden="true"></i></button>
 </div> -->
         <div class="container my-3">
-            <table class="table table-bordered display responsive nowrap small" style="width:100%" id="dataTable"
-                cellspacing="0">
+            <table class="table table-bordered display responsive small" style="width:100%" id="dataTable" cellspacing="0">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">No</th>
@@ -122,9 +121,11 @@
                         <tr>
                             <td class="text-center"><?= $no++ ?></td>
                             <td><?= $row->nama_tipe ?></td>
-                            <td class="text-center"><a
-                                    href="<?= site_url('/cek_harga/detail_tipe/' . $row->id_tipe . '') ?>"><button
-                                        type="button" class="btn btn-info">Cek Harga</button></a></td>
+                            <td class="text-center" width="20%">
+                                <a href="<?= site_url('/cek_harga/detail_tipe/' . $row->id_tipe . '') ?>">
+                                    <button type="button" class="btn btn-info" >Cek Harga</button>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

@@ -35,7 +35,7 @@ class Cek_harga extends CI_Controller
     public function detail_tipe($id) {
         $data = array(
             'tipe'        => $this->Tbl_harga_model->get_all_tipe_by_id($id),
-            'memori'      => $this->Tbl_harga_model->get_all_memori(),
+            'memori'      => $this->Tbl_harga_model->get_all_memori_ada($id),
             'kualifikasi' => $this->Tbl_harga_model->get_all_kualifikasi(),
             'kondisi'     => $this->Tbl_harga_model->get_all_kondisi(),
             
@@ -45,18 +45,41 @@ class Cek_harga extends CI_Controller
 
     public function detail_harga() {
 
-        
         $id = $this->input->get('id_tipe');
 
         $data = array(
             'record'        => $this->Tbl_harga_model->get_detail_harga(),
             'tipe'          => $this->Tbl_harga_model->get_all_tipe_by_id($id),
-            'memori'        => $this->Tbl_harga_model->get_all_memori(),
+            'memori'        => $this->Tbl_harga_model->get_all_memori_ada($id),
             'kualifikasi'   => $this->Tbl_harga_model->get_all_kualifikasi(),
             'kondisi'       => $this->Tbl_harga_model->get_all_kondisi(),
         );
         $this->load->view('cek_harga/detail_harga.php', $data);
     }
+
+    public function tukar_tambah() {
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt(),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
+        );
+        $this->load->view('cek_harga/tukar_tambah.php', $data);
+    }
+
+    public function tt_action() {
+
+       
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt(),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
+            'id_tipe'   => $this->input->get('id_tipe'),
+            'id_baru'   => $this->input->get('id_baru'),
+            
+        );
+        $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
+    }
+
 
 }
 

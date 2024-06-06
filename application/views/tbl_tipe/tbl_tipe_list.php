@@ -67,6 +67,7 @@
                                     <td width="10px"><?php echo ++$start ?></td>
                                     <td><?php echo $tbl_tipe->nama_merk ?></td>
                                     <td><?php echo $tbl_tipe->nama_tipe ?></td>
+                                    
                                     <td style="text-align:center" width="200px">
                                         <?php
                                         //echo anchor(site_url('tbl_tipe/read/' . $tbl_tipe->id_tipe), '<i class="fa fa-eye" aria-hidden="true"></i>', 'class="btn btn-danger btn-sm"');

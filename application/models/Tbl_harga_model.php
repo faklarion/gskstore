@@ -81,7 +81,7 @@ class Tbl_harga_model extends CI_Model
     function get_all_tipe_by_merk($id) 
     {
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
-        $this->db->order_by('id_tipe', 'DESC');
+        $this->db->order_by('id_tipe', 'ASC');
         $this->db->where('tbl_tipe.id_merk', $id);
         return $this->db->get('tbl_tipe')->result();
     }

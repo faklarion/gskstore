@@ -144,13 +144,13 @@
                                 <label for="<?php echo $row->nama_kondisi; ?><?php echo $row->id_kondisi; ?>"><?php echo $row->nama_kondisi; ?></label>
                                 <?php endforeach; ?>
                             </div>
-                            <div class="radio-button">
+                            <!-- <div class="radio-button">
                                 <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kualifikasi Handphone</small></p>
                                 <?php foreach($kualifikasi as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>" name="kualifikasi" value="<?php echo $row->id_kualifikasi; ?>">
                                 <label for="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>"><?php echo $row->nama_kualifikasi; ?></label>
                                 <?php endforeach; ?>
-                            </div>
+                            </div> -->
                                 <br>
                                 <button type="submit" class="btn btn-warning" style="border-radius:10px; width: 300px;"><b
                                         style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b></button>

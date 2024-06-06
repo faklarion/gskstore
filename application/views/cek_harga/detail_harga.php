@@ -149,13 +149,13 @@
                                 <?php endforeach; ?>
                             </div>
                             
-                            <div class="radio-button">
+                            <!-- <div class="radio-button">
                                 <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kualifikasi Handphone</small></p>
                                 <?php foreach($kualifikasi as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>" name="kualifikasi" value="<?php echo $row->id_kualifikasi; ?>" <?php if ($_SESSION['kualifikasi'] == $row->id_kualifikasi) echo 'checked'; ?>>
                                 <label for="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>"><?php echo $row->nama_kualifikasi; ?></label>
                                 <?php endforeach; ?>
-                            </div>
+                            </div> -->
                             <br>
                                 <button type="submit" class="btn btn-warning" style="border-radius:10px; width: 300px;"><b
                                         style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b></button>
@@ -167,12 +167,14 @@
                         <?php  
                         if ($record) {
                             $record;
-                            echo rupiah($record->harga);
-                        } else {
+                            echo ''.rupiah($record->harga).'';
+                        ?> 
+                        </h2>
+                        <small>(<?php echo $record->nama_kualifikasi ?>)</small>
+                        <?php } else {
                             echo 'Kriteria Tidak Ditemukan. Silahkan Temui Petugas Counter';
                             $record = false;
-                        }
-                        ?></h2>
+                        } ?>
                     </div>
                 </div>
             </div>

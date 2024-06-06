@@ -33,15 +33,16 @@ class Tbl_harga_model extends CI_Model
         $id              = $this->input->get('id_tipe');
         $idMemori        = $this->input->get('memori');
         $idKondisi       = $this->input->get('kondisi');
-        $idKualifikasi   = $this->input->get('kualifikasi');
+        //$idKualifikasi   = $this->input->get('kualifikasi');
 
         $_SESSION['kondisi']        = $idKondisi;
         $_SESSION['memori']         = $idMemori;
-        $_SESSION['kualifikasi']    = $idKualifikasi;
+        //$_SESSION['kualifikasi']    = $idKualifikasi;
 
         $this->db->where('id_memori', $idMemori);
         $this->db->where('id_kondisi', $idKondisi);
-        $this->db->where('id_kualifikasi', $idKualifikasi);
+        //$this->db->where('id_kualifikasi', $idKualifikasi);
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
         $this->db->where('id_tipe', $id);
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->row();

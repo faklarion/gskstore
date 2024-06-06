@@ -67,9 +67,7 @@ class Cek_harga extends CI_Controller
     }
 
     public function tt_action() {
-
-       
-
+    
         $data = array(
             'tipe'      => $this->Tbl_harga_model->get_all_tt(),
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),

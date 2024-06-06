@@ -94,6 +94,15 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_tipe')->result();
     }
 
+    public function update_import($where,$temp_data)
+    {
+            $this->db->where($where);
+            $insert = $this->db->insert_batch('tbl_harga', $temp_data);
+            if($insert){
+                return true;
+            }
+    }
+
     function get_all_tipe_by_id_row($id) 
     {
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');

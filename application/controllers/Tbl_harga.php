@@ -11,6 +11,7 @@ class Tbl_harga extends CI_Controller
         is_login();
         $this->load->model('Tbl_harga_model');
         $this->load->library('form_validation');
+        
     }
 
     public function index()
@@ -63,6 +64,67 @@ class Tbl_harga extends CI_Controller
             redirect(site_url('tbl_harga'));
         }
     }
+
+    public function import_excel() {
+        $data = array(
+            'action' => site_url('tbl_harga/import_excel_action'),      
+	    );
+        $this->template->load('template' , 'tbl_harga/tbl_harga_upload_excel', $data);
+    }
+
+    public function import_excel_action() {
+            if(isset($_FILES["file"]["name"])){
+                  // upload
+                $file_tmp = $_FILES['file']['tmp_name'];
+                $file_name = $_FILES['file']['name'];
+                $file_size =$_FILES['file']['size'];
+                $file_type=$_FILES['file']['type'];
+                // move_uploaded_file($file_tmp,"uploads/".$file_name); // simpan filenya di folder uploads
+                
+                $object = PHPExcel_IOFactory::load($file_tmp);
+        
+                foreach($object->getWorksheetIterator() as $worksheet){
+        
+                    $highestRow = $worksheet->getHighestRow();
+                    $highestColumn = $worksheet->getHighestColumn();
+        
+                    for($row=9; $row<=$highestRow; $row++){
+        
+                        
+                        $id_harga = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                        $harga = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+
+                        $data = array(
+                            'id_harga'          => $id_harga,
+                            'harga'          =>$harga,
+                        );
+        
+                    } 
+        
+                }
+                
+                $this->db->set($data);
+                $this->db->where('id_harga', $id_harga);
+                $this->db->update('tbl_harga'); 
+        
+                $message = array(
+                    'message'=>'<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
+                );
+                
+                $this->session->set_flashdata($message);
+                redirect(site_url('tbl_harga'));
+            }
+            else
+            {
+                 $message = array(
+                    'message'=>'<div class="alert alert-danger">Import file gagal, coba lagi</div>',
+                );
+                
+                $this->session->set_flashdata($message);
+                redirect(site_url('tbl_harga'));
+            }
+        }
+    
 
     public function create() 
     {

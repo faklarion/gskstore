@@ -16,7 +16,9 @@
                         <div class='row'>
                             <div class='col-md-9'>
                                 <div style="padding-bottom: 10px;">
-                                    <!-- <?php echo anchor(site_url('tbl_harga/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?> -->
+                                    <!--    <?php echo anchor(site_url('tbl_harga/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?> -->
+                                            <?php echo anchor(site_url('tbl_harga/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export/Download Excel', 'class="btn btn-success btn-sm"'); ?>
+                                            <?php echo anchor(site_url('tbl_harga/import_excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Import/Upload Excel', 'class="btn btn-primary btn-sm"'); ?>
                                 </div>
                             </div>
                         </div>

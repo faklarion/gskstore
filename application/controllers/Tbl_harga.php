@@ -238,6 +238,67 @@ class Tbl_harga extends CI_Controller
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
+    public function excel()
+    {
+        $this->load->helper('exportexcel');
+        $namaFile = "data_harga.xls";
+        $judul = "tbl_user";
+        $tablehead = 0;
+        $tablebody = 1;
+        $nourut = 1;
+            //penulisan header
+            header("Pragma: public");
+            header("Expires: 0");
+            header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+            header("Content-Type: application/force-download");
+            header("Content-Type: application/octet-stream");
+            header("Content-Type: application/download");
+            header("Content-Disposition: attachment;filename=" . $namaFile . "");
+            header("Content-Transfer-Encoding: binary ");
+
+            xlsBOF();
+
+        $kolomhead = 0;
+            xlsWriteLabel($tablehead, $kolomhead++, "No");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Harga");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Merk");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Tipe");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Memori");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Kondisi");
+            xlsWriteLabel($tablehead, $kolomhead++, "ID Kualifikasi");
+            xlsWriteLabel($tablehead, $kolomhead++, "Harga");
+            xlsWriteLabel($tablehead, $kolomhead++, "Merk");
+            xlsWriteLabel($tablehead, $kolomhead++, "Nama Tipe");
+            xlsWriteLabel($tablehead, $kolomhead++, "Memori");
+            xlsWriteLabel($tablehead, $kolomhead++, "Kondisi");
+            xlsWriteLabel($tablehead, $kolomhead++, "Kualifikasi");
+
+        foreach ($this->Tbl_harga_model->get_all_harga() as $data) {
+            $kolombody = 0;
+
+            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+            xlsWriteNumber($tablebody, $kolombody++, $nourut);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_harga);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_merk);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_tipe);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_memori);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_kondisi);
+            xlsWriteLabel($tablebody, $kolombody++, $data->id_kualifikasi);
+            xlsWriteNumber($tablebody, $kolombody++, $data->harga);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_merk);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_tipe);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_memori);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_kondisi);
+            xlsWriteLabel($tablebody, $kolombody++, $data->nama_kualifikasi);
+
+            $tablebody++;
+            $nourut++;
+        }
+
+        xlsEOF();
+        exit();
+    }
+
 }
 
 /* End of file Tbl_harga.php */

@@ -132,7 +132,7 @@
 							<option value="<?= $dataTipe->id_tipe ?>"><?php echo $dataTipe->nama_merk ?> <?= $dataTipe->nama_tipe?></option>
 							<?php endforeach ?>	
 							</optgroup>
-						<?php } ?>>
+						<?php } ?>
                 </select>
             </div>
             <div>

@@ -113,9 +113,7 @@ class Tbl_harga extends CI_Controller
                     'id_harga'      => $sheet_data[$i]['1'],
                     'harga'        => $sheet_data[$i]['7'],
                 );
-                //$array_data[] = $data;
             }
-            //$id_harga = $sheet_data[$i]['1'];
             
             if($array_data != '') {
                 $this->db->update_batch('tbl_harga', $data, 'id_harga');
@@ -294,74 +292,70 @@ class Tbl_harga extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('id_tipe', 'id tipe', 'trim|required');
-	$this->form_validation->set_rules('id_memori', 'id memori', 'trim|required');
-	$this->form_validation->set_rules('id_kondisi', 'id kondisi', 'trim|required');
-	$this->form_validation->set_rules('id_kualifikasi', 'id kualifikasi', 'trim|required');
-	$this->form_validation->set_rules('harga', 'harga', 'trim|required');
-	$this->form_validation->set_rules('id_harga', 'id_harga', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        $this->form_validation->set_rules('id_tipe', 'id tipe', 'trim|required');
+        $this->form_validation->set_rules('id_memori', 'id memori', 'trim|required');
+        $this->form_validation->set_rules('id_kondisi', 'id kondisi', 'trim|required');
+        $this->form_validation->set_rules('id_kualifikasi', 'id kualifikasi', 'trim|required');
+        $this->form_validation->set_rules('harga', 'harga', 'trim|required');
+        $this->form_validation->set_rules('id_harga', 'id_harga', 'trim');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
     {
-        $this->load->helper('exportexcel');
-        $namaFile = "data_harga.xls";
-        $judul = "tbl_user";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
-            //penulisan header
-            header("Pragma: public");
-            header("Expires: 0");
-            header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-            header("Content-Type: application/force-download");
-            header("Content-Type: application/octet-stream");
-            header("Content-Type: application/download");
-            header("Content-Disposition: attachment;filename=" . $namaFile . "");
-            header("Content-Transfer-Encoding: binary ");
+        /* Data */
+        $data = $this->Tbl_harga_model->get_all_harga();
 
-            xlsBOF();
+        /* Spreadsheet Init */
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
 
-        $kolomhead = 0;
-            xlsWriteLabel($tablehead, $kolomhead++, "No");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Harga");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Merk");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Tipe");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Memori");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Kondisi");
-            xlsWriteLabel($tablehead, $kolomhead++, "ID Kualifikasi");
-            xlsWriteLabel($tablehead, $kolomhead++, "Harga");
-            xlsWriteLabel($tablehead, $kolomhead++, "Merk");
-            xlsWriteLabel($tablehead, $kolomhead++, "Nama Tipe");
-            xlsWriteLabel($tablehead, $kolomhead++, "Memori");
-            xlsWriteLabel($tablehead, $kolomhead++, "Kondisi");
-            xlsWriteLabel($tablehead, $kolomhead++, "Kualifikasi");
-
-        foreach ($this->Tbl_harga_model->get_all_harga() as $data) {
-            $kolombody = 0;
-
-            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_harga);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_merk);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_tipe);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_memori);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_kondisi);
-            xlsWriteLabel($tablebody, $kolombody++, $data->id_kualifikasi);
-            xlsWriteNumber($tablebody, $kolombody++, $data->harga);
-            xlsWriteLabel($tablebody, $kolombody++, $data->nama_merk);
-            xlsWriteLabel($tablebody, $kolombody++, $data->nama_tipe);
-            xlsWriteLabel($tablebody, $kolombody++, $data->nama_memori);
-            xlsWriteLabel($tablebody, $kolombody++, $data->nama_kondisi);
-            xlsWriteLabel($tablebody, $kolombody++, $data->nama_kualifikasi);
-
-            $tablebody++;
-            $nourut++;
+        /* Excel Header */
+        $sheet->setCellValue('A1', '#');
+        $sheet->setCellValue('B1', 'ID Harga');
+        $sheet->setCellValue('C1', 'ID Merk');
+        $sheet->setCellValue('D1', 'ID Tipe');
+        $sheet->setCellValue('E1', 'ID Memori');
+        $sheet->setCellValue('F1', 'ID Kondisi');
+        $sheet->setCellValue('G1', 'ID Kualifikasi');
+        $sheet->setCellValue('H1', 'Harga');
+        $sheet->setCellValue('I1', 'Merk');
+        $sheet->setCellValue('J1', 'Tipe');
+        $sheet->setCellValue('K1', 'Memori');
+        $sheet->setCellValue('L1', 'Kondisi');
+        $sheet->setCellValue('M1', 'Kualifikasi');
+        
+        /* Excel Data */
+        $row_number = 2;
+        foreach($data as $key => $row)
+        {
+            $sheet->setCellValue('A'.$row_number, $key+1);
+            $sheet->setCellValue('B'.$row_number, $row->id_harga);
+            $sheet->setCellValue('C'.$row_number, $row->id_merk);
+            $sheet->setCellValue('D'.$row_number, $row->id_tipe);
+            $sheet->setCellValue('E'.$row_number, $row->id_memori);
+            $sheet->setCellValue('F'.$row_number, $row->id_kondisi);
+            $sheet->setCellValue('G'.$row_number, $row->id_kualifikasi);
+            $sheet->setCellValue('H'.$row_number, $row->harga);
+            $sheet->setCellValue('I'.$row_number, $row->nama_merk);
+            $sheet->setCellValue('J'.$row_number, $row->nama_tipe);
+            $sheet->setCellValue('K'.$row_number, $row->nama_memori);
+            $sheet->setCellValue('L'.$row_number, $row->nama_kondisi);
+            $sheet->setCellValue('M'.$row_number, $row->nama_kualifikasi);
+        
+            $row_number++;
         }
 
-        xlsEOF();
-        exit();
+        /* Excel File Format */
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'excel-report-harga';
+        
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'. $filename .'.xlsx"'); 
+        header('Cache-Control: max-age=0');
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
     }
 
 }

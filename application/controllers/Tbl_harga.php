@@ -3,6 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
 class Tbl_harga extends CI_Controller
 {
     function __construct()
@@ -73,8 +78,56 @@ class Tbl_harga extends CI_Controller
     }
 
     public function import_excel_action() {
-           
+        $this->load->helper('file');
+
+        /* Allowed MIME(s) File */
+        $file_mimes = array(
+            'application/octet-stream', 
+            'application/vnd.ms-excel', 
+            'application/x-csv', 
+            'text/x-csv', 
+            'text/csv', 
+            'application/csv', 
+            'application/excel', 
+            'application/vnd.msexcel', 
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        );
+
+        if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mimes)) {
+
+            $array_file = explode('.', $_FILES['file']['name']);
+            $extension  = end($array_file);
+
+            if('csv' == $extension) {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+            } else {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+
+            $spreadsheet = $reader->load($_FILES['file']['tmp_name']);
+            $sheet_data  = $spreadsheet->getActiveSheet(0)->toArray();
+            $array_data  = [];
+
+            for($i = 0; $i < count($sheet_data); $i++) {
+                $data[]= array(
+                    'id_harga'      => $sheet_data[$i]['1'],
+                    'harga'        => $sheet_data[$i]['7'],
+                );
+                //$array_data[] = $data;
+            }
+            //$id_harga = $sheet_data[$i]['1'];
+            
+            if($array_data != '') {
+                $this->db->update_batch('tbl_harga', $data, 'id_harga');
+            }
+            $this->session->set_flashdata('message', 'Input Harga Success !');
+            redirect(site_url('tbl_harga'));
+        } else {
+            $this->session->set_flashdata('message', 'Input Harga Gagal !');
+            redirect(site_url('tbl_harga'));
         }
+        redirect(site_url('tbl_harga'));
+    }
     
 
     public function create() 

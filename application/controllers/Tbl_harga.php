@@ -299,7 +299,6 @@ class Tbl_harga extends CI_Controller
 	$this->form_validation->set_rules('id_kondisi', 'id kondisi', 'trim|required');
 	$this->form_validation->set_rules('id_kualifikasi', 'id kualifikasi', 'trim|required');
 	$this->form_validation->set_rules('harga', 'harga', 'trim|required');
-
 	$this->form_validation->set_rules('id_harga', 'id_harga', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }

@@ -55,71 +55,18 @@
         });
 </script> -->
 <style>
-    @media (min-width: 50px) {
-        /* show 3 items */
-        .carousel-inner .active,
-        .carousel-inner .active+.carousel-item,
-        .carousel-inner .active+.carousel-item+.carousel-item,
-        .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item {
-            display: block;
-        }
-
-        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item,
-        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item,
-        .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item {
-            transition: none;
-        }
-
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
-            position: relative;
-            transform: translate3d(0, 0, 0);
-        }
-
-        .carousel-inner .active.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-            position: absolute;
-            top: 0;
-            right: -25%;
-            z-index: -1;
-            display: block;
-            visibility: visible;
-        }
-
-        /* left or forward direction */
-        .active.carousel-item-left+.carousel-item-next.carousel-item-left,
-        .carousel-item-next.carousel-item-left+.carousel-item,
-        .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item,
-        .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item,
-        .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-            position: relative;
-            transform: translate3d(-100%, 0, 0);
-            visibility: visible;
-        }
-
-        /* farthest right hidden item must be abso position for animations */
-        .carousel-inner .carousel-item-prev.carousel-item-right {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            display: block;
-            visibility: visible;
-        }
-
-        /* right or prev direction */
-        .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
-        .carousel-item-prev.carousel-item-right+.carousel-item,
-        .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item,
-        .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item,
-        .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-            position: relative;
-            transform: translate3d(100%, 0, 0);
-            visibility: visible;
-            display: block;
-            visibility: visible;
-        }
-
+    .your-class {
+    overflow-x: scroll;
+    }
+    
+    div.myClass {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    div.myClass [class*="col"], /* TWBS v3 */
+    div.myClass [class*="span"] {  /* TWBS v2 */
+        display: inline-block;
+        float: none; /* Very important */
     }
 
     .select2-container .select2-selection {
@@ -143,6 +90,11 @@
         position: relative;
         width: 70%;
         margin: auto;
+    }
+
+    .grid-item {
+            border: 1px solid #000;
+            height: 50px; /* Adjust this value as needed */
     }
 
     .custom-search-input {
@@ -217,7 +169,6 @@
                                     <div class="card-body align-items-center d-flex justify-content-center">
                                         <img src="<?= base_url('assets/img/' . $row->image . '') ?>">
                                     </div>
-
                                 </div>
                             </a>
                         </div>
@@ -226,101 +177,23 @@
             </div>
             <br>
             <br>
-            <div id="carouselExample" class="carousel slide d-block d-sm-none" data-ride="carousel" data-interval="9000">
-                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                    <div class="carousel-item col-md-3  active">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 1" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=1"
-                                        alt="slide 1">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 3" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=2"
-                                        alt="slide 2">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 4" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=3"
-                                        alt="slide 3">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 5" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=4"
-                                        alt="slide 4">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 6" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=5"
-                                        alt="slide 5">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 7" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=6"
-                                        alt="slide 6">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3 ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 8" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=7"
-                                        alt="slide 7">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item col-md-3  ">
-                        <div class="panel panel-default">
-                            <div class="panel-thumbnail">
-                                <a href="#" title="image 2" class="thumb">
-                                    <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=8"
-                                        alt="slide 8">
-                                </a>
-                            </div>
+            
+        <div class="row ">
+            <?php foreach ($merk as $row): ?>
+            <div class="col-3 mt-4 d-block d-sm-none">
+                            <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                <div class="card text-alignment class"
+                                    style="background-color: #f0f0f0; border-radius: 12px; height:100px;">
 
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                                    <div class="card-body align-items-center d-flex justify-content-center">
+                                        <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="75%">
+                                    </div>
+                                </div>
+                            </a>
             </div>
-            <br>
-            <br>
+            <?php endforeach; ?>
+        </div>
+    </div>
             
             <!--<div class="custom-search">
                 <input class="custom-search-input" placeholder="Cek harga HP yang kamu jual disini..." type="text"
@@ -350,46 +223,5 @@
                 return markup;
             }
         });
-    });
-</script>
-<script>
-    $('#carouselExample').on('slide.bs.carousel', function (e) {
-        var $e = $(e.relatedTarget);
-        var idx = $e.index();
-        var itemsPerSlide = 3;
-        var totalItems = $('.carousel-item').length;
-
-        if (idx >= totalItems - (itemsPerSlide - 1)) {
-            var it = itemsPerSlide - (totalItems - idx);
-            for (var i = 0; i < it; i++) {
-                // append slides to end
-                if (e.direction == "left") {
-                    $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                }
-                else {
-                    $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                }
-            }
-        }
-    });
-
-
-    $('#carouselExample').carousel({
-        interval: 2000
-    });
-
-
-    $(document).ready(function () {
-        /* show lightbox when clicking a thumbnail */
-        $('a.thumb').click(function (event) {
-            event.preventDefault();
-            var content = $('.modal-body');
-            content.empty();
-            var title = $(this).attr("title");
-            $('.modal-title').html(title);
-            content.html($(this).html());
-            $(".modal-profile").modal({ show: true });
-        });
-
     });
 </script>

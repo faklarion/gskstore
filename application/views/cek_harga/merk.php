@@ -23,11 +23,12 @@
 </head>
 
 <body style="background-color: #ffffff;">
-    <nav class="navbar navbar-default bg-dark">
-                <div class="container-fluid">
-                    <a href="<?php echo site_url('cek_harga')?>" ><b style="color: white;" >Jual HP</b></a>
-                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>" alt="" width="10%">
-                </div>
+        <nav class="navbar bg-dark">
+            <div class="container-fluid justify-content-center" style="min-height: 10%;">
+                <a href="<?php echo site_url('cek_harga')?>">
+                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>">
+                </a>
+            </div>
         </nav>
     <section>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

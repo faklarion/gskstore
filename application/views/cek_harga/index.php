@@ -55,19 +55,6 @@
         });
 </script> -->
 <style>
-    .your-class {
-    overflow-x: scroll;
-    }
-    
-    div.myClass {
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    div.myClass [class*="col"], /* TWBS v3 */
-    div.myClass [class*="span"] {  /* TWBS v2 */
-        display: inline-block;
-        float: none; /* Very important */
-    }
 
     .select2-container .select2-selection {
         border-radius: 20px;
@@ -131,12 +118,13 @@
 <body style="background-color: #ffffff;">
     <section>
         <nav class="navbar bg-dark">
-            <div class="container-fluid">
-                <a href="<?php echo site_url('cek_harga') ?>"><b style="color: white;">Jual HP</b></a>
-                <img src="<?= base_url('assets/img/logogskwhite.png') ?>" alt="" width="10%">
+            <div class="container-fluid justify-content-center" style="min-height: 10%;">
+                <a href="<?php echo site_url('cek_harga')?>">
+                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>">
+                </a>
             </div>
         </nav>
-        <div class="container my-3">
+        <div class="container my-3 justify-content-center">
             <div>
                 <h2 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
                     <b>Merek Handphone Terlaris</b>
@@ -165,7 +153,6 @@
                             <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
                                 <div class="card text-alignment class"
                                     style="background-color: #f0f0f0; border-radius: 12px; height:150px;">
-
                                     <div class="card-body align-items-center d-flex justify-content-center">
                                         <img src="<?= base_url('assets/img/' . $row->image . '') ?>">
                                     </div>
@@ -175,40 +162,24 @@
                     <?php endforeach; ?>
                 </div>
             </div>
-            <br>
-            <br>
             
-        <div class="row ">
-            <?php foreach ($merk as $row): ?>
-            <div class="col-3 mt-4 d-block d-sm-none">
-                            <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
-                                <div class="card text-alignment class"
-                                    style="background-color: #f0f0f0; border-radius: 12px; height:100px;">
-
-                                    <div class="card-body align-items-center d-flex justify-content-center">
-                                        <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="75%">
-                                    </div>
-                                </div>
-                            </a>
+            <div class="row justify-content-center align-items-center">
+                    <?php foreach ($merk as $row): ?>
+                    <div class="col-4 mt-2 d-block d-sm-none">
+                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px;">
+                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
             
-            <!--<div class="custom-search">
-                <input class="custom-search-input" placeholder="Cek harga HP yang kamu jual disini..." type="text"
-                        id="country" autocomplete="off" name="country" class="form-control">
-                <button class="custom-search-botton" type="submit"><i class="fa fa-search"
-                                aria-hidden="true"></i></button>
-            </div> -->
-            <!--<ul class="dropdown-menu txtcountry" role="menu" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>-->
-
-            <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
                 Harga yang tertera adalah harga estimasi Handphone mulus like new
                 <br> jika ada minus fungsi atau minus fisik harga akan berubah sesuai kerusakan.
-            </p>
+            </p>            
         </div>
-
     </section>
 </body>
 

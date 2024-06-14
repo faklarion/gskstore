@@ -100,8 +100,8 @@
             </div>
         </nav>
     <section>
-        <div>
-            <p class="text-center"><img src="<?= base_url('assets/img/banner.jpg') ?>" width="70%"></p>
+        <div class="container justify-content-center">
+            <img class="img-fluid" src="<?= base_url('assets/img/banner.jpg') ?>">
         </div>
 
         <div class="container" width="50%">

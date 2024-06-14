@@ -73,8 +73,8 @@
            
         </div>
 
-        <div>
-            <p class="text-center"><img src="<?= base_url('assets/img/banner.jpg') ?>" width="70%"></p>
+        <div class="container justify-content-center">
+            <img class="img-fluid" src="<?= base_url('assets/img/banner.jpg') ?>">
         </div>
         <div>
             <h2 style="font-family: Arial, Helvetica, sans-serif;" class="text-center">

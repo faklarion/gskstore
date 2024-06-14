@@ -22,7 +22,12 @@ Class Auth extends CI_Controller{
             if(password_verify($password,$user['password'])){
                 // retrive user data to session
                 $this->session->set_userdata($user);
-                redirect('welcome');
+                if($this->session->userdata('id_user_level') == 2) {
+                    redirect('cek_harga');
+                } else {
+                    redirect('welcome');
+                }
+                
             }else{
                 redirect('auth');
             }

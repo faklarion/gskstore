@@ -141,6 +141,8 @@
     $(document).ready(function () {
         $('#dataTable').DataTable({
             responsive: true,
+            filter: true,
+            "searching": true,
             columnDefs: [{
                 responsivePriority: 1,
                 targets: 0
@@ -155,9 +157,5 @@
             }
             ]
         });
-        $('.datepicker').datepicker({
-            format: 'dd-mm-yyyy'
-        });
-        $('.number').number(true);
     });
 </script>

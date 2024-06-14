@@ -16,7 +16,9 @@ class Cek_harga extends CI_Controller
     public function index()
     {
         $data = array(
-            'merk'      => $this->Tbl_harga_model->get_all_merk(),
+            'merk_all'      => $this->Tbl_harga_model->get_all_merk(),
+            'merk'      => $this->Tbl_harga_model->get_all_merk_1(),
+            'merk_2'      => $this->Tbl_harga_model->get_all_merk_2(),
             'tipe'      => $this->Tbl_harga_model->get_all_tipe(),
         );
 

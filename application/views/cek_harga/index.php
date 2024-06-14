@@ -119,8 +119,8 @@
     <section>
         <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
-                <a href="<?php echo site_url('cek_harga')?>">
-                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>">
+                <a class="text-center" href="<?php echo site_url('cek_harga')?>">
+                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
         </nav>
@@ -134,7 +134,7 @@
                 <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required
                     onchange="window.location.assign('<?php echo site_url('cek_harga/detail_tipe/') ?>' + this.options[this.selectedIndex].value)">
                     <option value="">Cari Harga handphone yang ingin kamu jual</option>
-                    <?php foreach ($merk as $row) { ?>
+                    <?php foreach ($merk_all as $row) { ?>
                         <optgroup label="<?php echo $row->nama_merk ?>">
                             <?php $listTipe = $this->Tbl_harga_model->get_all_tipe_by_merk($row->id_merk);
                             foreach ($listTipe as $dataTipe): ?>
@@ -148,7 +148,7 @@
             </div>
             <div>
                 <div class="row">
-                    <?php foreach ($merk as $row): ?>
+                    <?php foreach ($merk_all as $row): ?>
                         <div class="col-6 col-sm-3 mt-4 d-none d-sm-block">
                             <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
                                 <div class="card text-alignment class"
@@ -163,19 +163,32 @@
                 </div>
             </div>
             
-            <div class="row justify-content-center align-items-center">
+            <div class="container overflow-auto">
+            <div class="row flex-nowrap">
                     <?php foreach ($merk as $row): ?>
-                    <div class="col-4 mt-2 d-block d-sm-none">
+                    <div class="col-4 mt-4 d-block d-sm-none">
                                     <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
-                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px;">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
                                                 <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
                                         </div>
                                     </a>
                     </div>
                     <?php endforeach; ?>
             </div>
-            
-                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+            <div class="row flex-nowrap">
+                    <?php foreach ($merk_2 as $row): ?>
+                    <div class="col-4 mt-2 d-block d-sm-none">
+                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <?php endforeach; ?>
+            </div>
+            </div>
+                    
+            <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
                 Harga yang tertera adalah harga estimasi Handphone mulus like new
                 <br> jika ada minus fungsi atau minus fisik harga akan berubah sesuai kerusakan.
             </p>            

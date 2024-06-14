@@ -110,17 +110,17 @@
 </style>
 
 <body style="background-color: #ffffff;">
-        <nav class="navbar bg-dark">
+<nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
-                <a href="<?php echo site_url('tukar_tambah')?>">
-                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>">
+                <a class="text-center" href="<?php echo site_url('tukar_tambah')?>">
+                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
         </nav>
     <section>
-            <div>
-                <h2 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
-                        Handphone Kamu Disini </b></h2>
+    <div class="container my-3">
+                <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
+                        Handphone Kamu Disini </b></h3>
             </div>
             <form action="<?php echo site_url('cek_harga/tt_action') ?>" method="get" enctype="multipart/form-data"
                 autocomplete="off">
@@ -185,8 +185,11 @@
             </div> -->
             <!--<ul class="dropdown-menu txtcountry" role="menu" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>-->
 
-            <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah
-                harga estimasi tukar tambah <br> Untuk informasi lebih lanjut bisa menghubungi Call Center kami.</p>
+            <div class="container">
+                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah
+                    harga estimasi tukar tambah dan bisa berubah sewaktu waktu <br> Untuk informasi lebih lanjut bisa menghubungi Call Center kami.</p>
+                    <p class="text-center"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
+            </div>
         </div>
     </section>
 

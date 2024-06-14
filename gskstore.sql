@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 03:25 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Waktu pembuatan: 14 Jun 2024 pada 06.02
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_baru`
+-- Struktur dari tabel `tbl_baru`
 --
 
 CREATE TABLE `tbl_baru` (
@@ -35,7 +35,7 @@ CREATE TABLE `tbl_baru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_baru`
+-- Dumping data untuk tabel `tbl_baru`
 --
 
 INSERT INTO `tbl_baru` (`id_baru`, `nama_baru`, `memori_baru`, `harga_baru`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `tbl_baru` (`id_baru`, `nama_baru`, `memori_baru`, `harga_baru`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_hak_akses`
+-- Struktur dari tabel `tbl_hak_akses`
 --
 
 CREATE TABLE `tbl_hak_akses` (
@@ -86,7 +86,7 @@ CREATE TABLE `tbl_hak_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_hak_akses`
+-- Dumping data untuk tabel `tbl_hak_akses`
 --
 
 INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_harga`
+-- Struktur dari tabel `tbl_harga`
 --
 
 CREATE TABLE `tbl_harga` (
@@ -110,7 +110,7 @@ CREATE TABLE `tbl_harga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_harga`
+-- Dumping data untuk tabel `tbl_harga`
 --
 
 INSERT INTO `tbl_harga` (`id_harga`, `id_tipe`, `id_memori`, `id_kondisi`, `id_kualifikasi`, `harga`) VALUES
@@ -1727,13 +1727,13 @@ INSERT INTO `tbl_harga` (`id_harga`, `id_tipe`, `id_memori`, `id_kondisi`, `id_k
 (1620, 411, 6, 2, 2, 17500000),
 (1621, 411, 6, 3, 2, 17000000),
 (1622, 411, 7, 1, 1, 20000000),
-(1623, 411, 7, 2, 1, 19500000),
-(1624, 411, 7, 3, 1, 19000000);
+(1623, 411, 7, 2, 1, 1000),
+(1624, 411, 7, 3, 1, 1000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kondisi`
+-- Struktur dari tabel `tbl_kondisi`
 --
 
 CREATE TABLE `tbl_kondisi` (
@@ -1742,7 +1742,7 @@ CREATE TABLE `tbl_kondisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kondisi`
+-- Dumping data untuk tabel `tbl_kondisi`
 --
 
 INSERT INTO `tbl_kondisi` (`id_kondisi`, `nama_kondisi`) VALUES
@@ -1754,7 +1754,7 @@ INSERT INTO `tbl_kondisi` (`id_kondisi`, `nama_kondisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kualifikasi`
+-- Struktur dari tabel `tbl_kualifikasi`
 --
 
 CREATE TABLE `tbl_kualifikasi` (
@@ -1763,7 +1763,7 @@ CREATE TABLE `tbl_kualifikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kualifikasi`
+-- Dumping data untuk tabel `tbl_kualifikasi`
 --
 
 INSERT INTO `tbl_kualifikasi` (`id_kualifikasi`, `nama_kualifikasi`) VALUES
@@ -1774,7 +1774,7 @@ INSERT INTO `tbl_kualifikasi` (`id_kualifikasi`, `nama_kualifikasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_memori`
+-- Struktur dari tabel `tbl_memori`
 --
 
 CREATE TABLE `tbl_memori` (
@@ -1783,7 +1783,7 @@ CREATE TABLE `tbl_memori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_memori`
+-- Dumping data untuk tabel `tbl_memori`
 --
 
 INSERT INTO `tbl_memori` (`id_memori`, `nama_memori`) VALUES
@@ -1798,7 +1798,7 @@ INSERT INTO `tbl_memori` (`id_memori`, `nama_memori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_menu`
+-- Struktur dari tabel `tbl_menu`
 --
 
 CREATE TABLE `tbl_menu` (
@@ -1811,7 +1811,7 @@ CREATE TABLE `tbl_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_menu`
+-- Dumping data untuk tabel `tbl_menu`
 --
 
 INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_aktif`) VALUES
@@ -1826,7 +1826,7 @@ INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_merk`
+-- Struktur dari tabel `tbl_merk`
 --
 
 CREATE TABLE `tbl_merk` (
@@ -1836,7 +1836,7 @@ CREATE TABLE `tbl_merk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_merk`
+-- Dumping data untuk tabel `tbl_merk`
 --
 
 INSERT INTO `tbl_merk` (`id_merk`, `nama_merk`, `image`) VALUES
@@ -1852,7 +1852,7 @@ INSERT INTO `tbl_merk` (`id_merk`, `nama_merk`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_setting`
+-- Struktur dari tabel `tbl_setting`
 --
 
 CREATE TABLE `tbl_setting` (
@@ -1862,7 +1862,7 @@ CREATE TABLE `tbl_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_setting`
+-- Dumping data untuk tabel `tbl_setting`
 --
 
 INSERT INTO `tbl_setting` (`id_setting`, `nama_setting`, `value`) VALUES
@@ -1871,7 +1871,7 @@ INSERT INTO `tbl_setting` (`id_setting`, `nama_setting`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tipe`
+-- Struktur dari tabel `tbl_tipe`
 --
 
 CREATE TABLE `tbl_tipe` (
@@ -1881,7 +1881,7 @@ CREATE TABLE `tbl_tipe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_tipe`
+-- Dumping data untuk tabel `tbl_tipe`
 --
 
 INSERT INTO `tbl_tipe` (`id_tipe`, `id_merk`, `nama_tipe`) VALUES
@@ -2296,7 +2296,7 @@ INSERT INTO `tbl_tipe` (`id_tipe`, `id_merk`, `nama_tipe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -2310,7 +2310,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_users`, `full_name`, `email`, `password`, `images`, `id_user_level`, `is_aktif`) VALUES
@@ -2320,7 +2320,7 @@ INSERT INTO `tbl_user` (`id_users`, `full_name`, `email`, `password`, `images`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user_level`
+-- Struktur dari tabel `tbl_user_level`
 --
 
 CREATE TABLE `tbl_user_level` (
@@ -2329,7 +2329,7 @@ CREATE TABLE `tbl_user_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user_level`
+-- Dumping data untuk tabel `tbl_user_level`
 --
 
 INSERT INTO `tbl_user_level` (`id_user_level`, `nama_level`) VALUES
@@ -2341,149 +2341,149 @@ INSERT INTO `tbl_user_level` (`id_user_level`, `nama_level`) VALUES
 --
 
 --
--- Indexes for table `tbl_baru`
+-- Indeks untuk tabel `tbl_baru`
 --
 ALTER TABLE `tbl_baru`
   ADD PRIMARY KEY (`id_baru`);
 
 --
--- Indexes for table `tbl_hak_akses`
+-- Indeks untuk tabel `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_harga`
+-- Indeks untuk tabel `tbl_harga`
 --
 ALTER TABLE `tbl_harga`
   ADD PRIMARY KEY (`id_harga`);
 
 --
--- Indexes for table `tbl_kondisi`
+-- Indeks untuk tabel `tbl_kondisi`
 --
 ALTER TABLE `tbl_kondisi`
   ADD PRIMARY KEY (`id_kondisi`);
 
 --
--- Indexes for table `tbl_kualifikasi`
+-- Indeks untuk tabel `tbl_kualifikasi`
 --
 ALTER TABLE `tbl_kualifikasi`
   ADD PRIMARY KEY (`id_kualifikasi`);
 
 --
--- Indexes for table `tbl_memori`
+-- Indeks untuk tabel `tbl_memori`
 --
 ALTER TABLE `tbl_memori`
   ADD PRIMARY KEY (`id_memori`);
 
 --
--- Indexes for table `tbl_menu`
+-- Indeks untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indexes for table `tbl_merk`
+-- Indeks untuk tabel `tbl_merk`
 --
 ALTER TABLE `tbl_merk`
   ADD PRIMARY KEY (`id_merk`);
 
 --
--- Indexes for table `tbl_setting`
+-- Indeks untuk tabel `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
--- Indexes for table `tbl_tipe`
+-- Indeks untuk tabel `tbl_tipe`
 --
 ALTER TABLE `tbl_tipe`
   ADD PRIMARY KEY (`id_tipe`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_users`);
 
 --
--- Indexes for table `tbl_user_level`
+-- Indeks untuk tabel `tbl_user_level`
 --
 ALTER TABLE `tbl_user_level`
   ADD PRIMARY KEY (`id_user_level`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_baru`
+-- AUTO_INCREMENT untuk tabel `tbl_baru`
 --
 ALTER TABLE `tbl_baru`
   MODIFY `id_baru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `tbl_hak_akses`
+-- AUTO_INCREMENT untuk tabel `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `tbl_harga`
+-- AUTO_INCREMENT untuk tabel `tbl_harga`
 --
 ALTER TABLE `tbl_harga`
   MODIFY `id_harga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1625;
 
 --
--- AUTO_INCREMENT for table `tbl_kondisi`
+-- AUTO_INCREMENT untuk tabel `tbl_kondisi`
 --
 ALTER TABLE `tbl_kondisi`
   MODIFY `id_kondisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_kualifikasi`
+-- AUTO_INCREMENT untuk tabel `tbl_kualifikasi`
 --
 ALTER TABLE `tbl_kualifikasi`
   MODIFY `id_kualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_memori`
+-- AUTO_INCREMENT untuk tabel `tbl_memori`
 --
 ALTER TABLE `tbl_memori`
   MODIFY `id_memori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbl_menu`
+-- AUTO_INCREMENT untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `tbl_merk`
+-- AUTO_INCREMENT untuk tabel `tbl_merk`
 --
 ALTER TABLE `tbl_merk`
   MODIFY `id_merk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_setting`
+-- AUTO_INCREMENT untuk tabel `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
   MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_tipe`
+-- AUTO_INCREMENT untuk tabel `tbl_tipe`
 --
 ALTER TABLE `tbl_tipe`
   MODIFY `id_tipe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_user_level`
+-- AUTO_INCREMENT untuk tabel `tbl_user_level`
 --
 ALTER TABLE `tbl_user_level`
   MODIFY `id_user_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

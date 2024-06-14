@@ -90,10 +90,10 @@
 </style>
 
 <body style="background-color: #ffffff;">
-        <nav class="navbar bg-dark">
+<nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
-                <a href="<?php echo site_url('cek_harga')?>">
-                    <img src="<?= base_url('assets/img/logogskwhite.png') ?>">
+                <a class="text-center" href="<?php echo site_url('cek_harga')?>">
+                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
         </nav>

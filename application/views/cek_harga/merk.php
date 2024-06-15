@@ -84,7 +84,7 @@
                 <b>
                     <?php $dataTipe = $this->Tbl_harga_model->get_all_merk_by_id(@$row->id_merk); 
                         foreach ($dataTipe as $list) {
-                            echo 'Jual HP '.@$list->nama_merk.' Bekas';
+                            echo 'Jual HP '.@$list->nama_merk.'';
                         }
                     ?>
                 </b>

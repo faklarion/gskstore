@@ -113,7 +113,7 @@
 <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
                 <a class="text-center" href="<?php echo site_url('tukar_tambah')?>">
-                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
+                    <img src="<?= base_url('assets/img/syihabstorewhite.png') ?>" width="150px">
                 </a>
             </div>
         </nav>
@@ -122,7 +122,7 @@
                 <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
                         Handphone Kamu Disini </b></h3>
             </div>
-            <form action="<?php echo site_url('cek_harga/tt_action') ?>" method="get" enctype="multipart/form-data"
+            <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data"
                 autocomplete="off">
                 <div class="custom-search my-3">
                     <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>

@@ -29,11 +29,9 @@ class Tukar_tambah extends CI_Controller
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
             'id_tipe'   => $this->input->get('id_tipe'),
             'id_baru'   => $this->input->get('id_baru'),
-            
         );
         $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
     }
-
 
 }
 

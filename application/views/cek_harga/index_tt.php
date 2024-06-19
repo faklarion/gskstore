@@ -7,18 +7,18 @@
     <link rel="shortcut icon" href="<?= base_url('assets/img/gsk-favicon.png') ?>" type="image/x-icon">
     <meta name="description"
         content="Cek Harga Second Handphone Kamu Dan Dapatkan Harga Terbaik Hanya Di Galery Second Kalimantan.">
-    <title>Dapatkan Penawaran Harga Terbaik Handphone Kamu Di Galery Second Kalimantan</title>
+    <title>Tukar Tambah HP Mu</title>
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="<?php echo base_url() ?>assets/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
-    <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js'); ?>"></script>
-    <link rel="stylesheet" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap-grid.min.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap-reboot.min.css'); ?>">
-    <script src="<?= base_url('assets/vendor/number/jquery.number.min.js'); ?>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="<?= base_url('assets/vendor/select2/select2.min.css'); ?>" rel="stylesheet">
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 </head>
@@ -55,6 +55,7 @@
         });
 </script> -->
 <style>
+
     .select2-container .select2-selection {
         border-radius: 20px;
         height: 30px;
@@ -76,7 +77,11 @@
         position: relative;
         width: 70%;
         margin: auto;
+    }
 
+    .grid-item {
+            border: 1px solid #000;
+            height: 50px; /* Adjust this value as needed */
     }
 
     .custom-search-input {
@@ -111,69 +116,69 @@
 </style>
 
 <body style="background-color: #ffffff;">
-<nav class="navbar bg-dark">
+    <section>
+        <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
                 <a class="text-center" href="<?php echo site_url('tukar_tambah_android')?>">
-                <img src="<?= base_url('assets/img/syihabstorewhite.png') ?>" width="150px">
+                    <img src="<?= base_url('assets/img/syihabstorewhite.png') ?>" width="150px">
                 </a>
             </div>
         </nav>
-    <section>
-            <div class="container my-3">
-                <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
-                        Handphone <?php echo $merk?> Kamu Disini </b></h3>
+        <div class="container my-3 justify-content-center">
+            <div>
+                <h2 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+                    <b>Tukar Tambah HP Kamu</b>
+                </h2>
             </div>
-            <form action="<?php echo site_url('tukar_tambah_android/tt_action') ?>" method="get" enctype="multipart/form-data"
-                autocomplete="off">
-                <div class="custom-search my-3">
-                    <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
-                        <option value="">Cari Harga handphone yang ingin kamu jual </option>
-                        <?php foreach ($tipe as $dataTipe): ?>
-                            <option value="<?= $dataTipe->id_harga ?>" >
-                                <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?>
-                            </option>
-                        <?php endforeach ?>
-                        </optgroup>
-                    </select>
+           
+            <div>
+                <div class="row justify-content-center">
+                    <?php foreach ($merk as $row): ?>
+                        <div class="col-6 col-sm-3 mt-4 d-none d-sm-block">
+                            <a href="<?= site_url($row->link_tt) ?>">
+                                <div class="card text-alignment class"
+                                    style="background-color: #f0f0f0; border-radius: 12px; height:150px;">
+                                    <div class="card-body align-items-center d-flex justify-content-center">
+                                        <img src="<?= base_url('assets/img/' . $row->image . '') ?>">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="container">
-                    <input type="hidden" name="id_merk" value="<?php echo $idMerk ?>"/>
-                    <input type="hidden" name="nama_merk" value="<?php echo $merk ?>"/>
-                    <p class="text-center"><span class="text-center">Tukar Dengan</span></p>
-                </div>
-                <div class="custom-search">
-                    <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
-                        <option value="">Cari Harga handphone yang ingin kamu tukar</option>
-                        <?php foreach ($tipe_baru as $dataTipe): ?>
-                            <option value="<?= $dataTipe->id_baru ?>"><?= $dataTipe->nama_baru ?> <?= $dataTipe->memori_baru ?> </option>
-                        <?php endforeach ?>
-                        </optgroup>
-                    </select>
-                </div>
-                <br>
-                <div class="container">
-                    <p class="text-center"><button type="submit" class="btn btn-warning"
-                            style="border-radius:10px; width: 300px;">
-                            <b style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b>
-                        </button></p>
-                </div>
-            </form>
-            <br>
-            <!--<div class="custom-search">
-                <input class="custom-search-input" placeholder="Cek harga HP yang kamu jual disini..." type="text"
-                        id="country" autocomplete="off" name="country" class="form-control">
-                <button class="custom-search-botton" type="submit"><i class="fa fa-search"
-                                aria-hidden="true"></i></button>
-            </div> -->
-            <!--<ul class="dropdown-menu txtcountry" role="menu" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>-->
-            <div class="container">
-                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah
-                    harga estimasi tukar tambah dan bisa berubah sewaktu waktu <br> Untuk informasi lebih lanjut bisa menghubungi Call Center kami.</p>
-                    <p class="text-center"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
             </div>
+            
+            <div class="container overflow-auto">
+            <div class="row flex-nowrap">
+                    <?php foreach ($merk_tt as $row): ?>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <?php endforeach; ?>
+            </div>
+            <div class="row flex-nowrap">
+                    <?php foreach ($merk_tt_2 as $row): ?>
+                    <div class="col-4 mt-2 d-block d-sm-none">
+                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <?php endforeach; ?>
+            </div>
+            </div>
+                    
+            <!-- <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+                Harga yang tertera adalah harga estimasi Handphone mulus like new
+                <br> jika ada minus fungsi atau minus fisik harga akan berubah sesuai kerusakan.
+            </p>   -->          
         </div>
     </section>
-
 </body>
 
 </html>

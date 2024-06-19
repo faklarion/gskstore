@@ -15,6 +15,16 @@ class Tukar_tambah_android extends CI_Controller
 
     public function index() {
 
+        $data = array(
+            'merk_tt'           => $this->Tbl_harga_model->get_all_merk_tt(),
+            'merk_tt_2'         => $this->Tbl_harga_model->get_all_merk_tt_2(),
+            'merk'              => $this->Tbl_harga_model->get_all_merk_tt_semua(),
+        );
+        $this->load->view('cek_harga/index_tt.php', $data);
+    }
+
+    public function samsung() {
+
         $merk = 'Samsung';
         $idMerk = 4;
 
@@ -26,6 +36,78 @@ class Tukar_tambah_android extends CI_Controller
         );
         $this->load->view('cek_harga/tukar_tambah_android.php', $data);
     }
+
+    public function oppo() {
+
+        $merk = 'Oppo';
+        $idMerk = 2;
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'merk'      => $merk,
+            'idMerk'    => $idMerk,
+        );
+        $this->load->view('cek_harga/tukar_tambah_android.php', $data);
+    }
+
+
+    public function vivo() {
+
+        $merk = 'Vivo';
+        $idMerk = 3;
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'merk'      => $merk,
+            'idMerk'    => $idMerk,
+        );
+        $this->load->view('cek_harga/tukar_tambah_android.php', $data);
+    }
+
+    public function realme() {
+
+        $merk = 'Realme';
+        $idMerk = 7;
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'merk'      => $merk,
+            'idMerk'    => $idMerk,
+        );
+        $this->load->view('cek_harga/tukar_tambah_android.php', $data);
+    }
+
+    public function xiaomi() {
+
+        $merk = 'Xiaomi';
+        $idMerk = 6;
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'merk'      => $merk,
+            'idMerk'    => $idMerk,
+        );
+        $this->load->view('cek_harga/tukar_tambah_android.php', $data);
+    }
+
+    public function infinix() {
+
+        $merk = 'Infinix';
+        $idMerk = 5;
+
+        $data = array(
+            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'merk'      => $merk,
+            'idMerk'    => $idMerk,
+        );
+        $this->load->view('cek_harga/tukar_tambah_android.php', $data);
+    }
+
 
     public function tt_action() {
     

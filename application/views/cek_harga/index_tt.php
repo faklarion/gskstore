@@ -120,7 +120,7 @@
         <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
                 <a class="text-center" href="<?php echo site_url('tukar_tambah_android')?>">
-                    <img src="<?= base_url('assets/img/syihabstorewhite.png') ?>" width="150px">
+                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
         </nav>
@@ -152,7 +152,7 @@
             <div class="row flex-nowrap">
                     <?php foreach ($merk_tt as $row): ?>
                     <div class="col-4 mt-4 d-block d-sm-none">
-                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                    <a href="<?= site_url($row->link_tt) ?>">
                                         <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
                                                 <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
                                         </div>
@@ -163,7 +163,7 @@
             <div class="row flex-nowrap">
                     <?php foreach ($merk_tt_2 as $row): ?>
                     <div class="col-4 mt-2 d-block d-sm-none">
-                                    <a href="<?= site_url('/cek_harga/merk/' . $row->id_merk . '') ?>">
+                                    <a href="<?= site_url($row->link_tt) ?>">
                                         <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
                                                 <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
                                         </div>

@@ -124,6 +124,9 @@
                 </a>
             </div>
         </nav>
+        <div>
+            <img class="img-fluid" src="<?= base_url('assets/img/banner.jpg') ?>" width="100%">
+        </div>
         <div class="container my-3 justify-content-center">
             <div>
                 <h2 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">

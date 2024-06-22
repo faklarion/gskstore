@@ -113,7 +113,7 @@
 <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
                     <a class="text-center" href="<?php echo site_url('tukar_tambah_android')?>">
-                    <img src="<?= base_url('assets/img/syihabstorewhite.png') ?>" width="150px">
+                    <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
         </nav>

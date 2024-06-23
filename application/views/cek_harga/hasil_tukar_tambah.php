@@ -118,11 +118,10 @@
             </div>
         </nav>
     <section>
-    <div class="container my-3">
-                <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
-                        Handphone Kamu Disini </b></h3>
+            <div class="container my-3">
+                <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah Handphone Apple Kamu Disini </b></h3>
             </div>
-            <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data"
+            <!-- <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data"
                 autocomplete="off">
                 <div class="custom-search my-3">
                     <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
@@ -155,6 +154,51 @@
                             <b style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b>
                         </button></p>
                 </div>
+            </form> -->
+            <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data" autocomplete="off">
+            <div class="container my-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Apple</h5>
+                            </div>
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px;">
+                            <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
+                                <option value="">Cari Harga handphone yang ingin kamu jual </option>
+                                <?php foreach ($tipe as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_harga ?>" <?php if($dataTipe->id_harga==$id_tipe) echo 'selected="selected"'; ?>>
+                                        <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?>
+                                    </option>
+                                <?php endforeach ?>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Apple</h5>
+                            </div>
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px;">
+                            <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($tipe_baru as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container">
+                    <p class="text-center"><button type="submit" class="btn btn-warning"
+                            style="border-radius:10px; width: 300px;">
+                            <b style="font-family: Arial, Helvetica, sans-serif;">CEK SEKARANG</b>
+                        </button></p>
+                    </div>
+                </div>
+            </div>
             </form>
 
            
@@ -186,8 +230,8 @@
             <!--<ul class="dropdown-menu txtcountry" role="menu" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>-->
 
             <div class="container">
-                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah
-                    harga estimasi tukar tambah dan bisa berubah sewaktu waktu <br> Untuk informasi lebih lanjut bisa menghubungi Call Center kami.</p>
+                    <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah harga estimasi tukar tambah dan bisa berubah sewaktu waktu.
+                    <br>Hubungi call center sekarang sebelum harga berubah.</p>
                     <p class="text-center"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
             </div>
         </div>

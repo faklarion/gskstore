@@ -187,7 +187,8 @@ class Tbl_harga_model extends CI_Model
         $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
         $this->db->where('tbl_harga.id_tipe', $id);
-        $this->db->order_by('id_harga', 'DESC');
+        $this->db->order_by('tbl_harga.id_memori', 'ASC');
+        $this->db->order_by('tbl_harga.id_kondisi', 'ASC');
         return $this->db->get('tbl_harga')->result();
     }
 

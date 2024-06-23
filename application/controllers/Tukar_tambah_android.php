@@ -112,7 +112,7 @@ class Tukar_tambah_android extends CI_Controller
     public function tt_action() {
     
         $merk = $this->input->get('nama_merk');
-        $idMerk = $this->input->get('id_merk');;
+        $idMerk = $this->input->get('id_merk');
         
         $data = array(
             'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),

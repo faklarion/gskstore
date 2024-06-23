@@ -69,10 +69,6 @@
                 z-index: 2;
             }
         </style>
-        <div class="container my-3">
-           
-        </div>
-
         <div>
             <img class="img-fluid" src="<?= base_url('assets/img/banner.jpg') ?>" width="100%">
         </div>

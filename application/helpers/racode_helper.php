@@ -97,3 +97,10 @@ function rupiah($angka){
 	return $hasil_rupiah;
  
 }
+
+function rupiah_2($angka){
+	
+	$hasil_rupiah = number_format($angka,0,',','.');
+	return $hasil_rupiah;
+ 
+}

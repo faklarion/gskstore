@@ -229,7 +229,7 @@ class Tbl_harga extends CI_Controller
                 'id_memori' => set_value('id_memori'),
                 'id_kondisi' => set_value('id_kondisi'),
                 'id_kualifikasi' => set_value('id_kualifikasi'),
-                'harga' => set_value('harga'),
+                'harga' => 0,
 	    );
             $this->template->load('template','tbl_harga/tbl_harga_form', $data);
         } else {

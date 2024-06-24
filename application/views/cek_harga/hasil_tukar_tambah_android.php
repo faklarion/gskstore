@@ -162,7 +162,7 @@
             <input type="hidden" name="nama_merk" value="<?php echo $merk ?>"/>
             <div class="container my-2">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center"><?php echo $merk ?></h5>
@@ -179,7 +179,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center"><?php echo $merk ?></h5>

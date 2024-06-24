@@ -1,3 +1,7 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
+
 <div class="content-wrapper">
     <section class="content">
         <div class="row">
@@ -15,7 +19,7 @@
                                     <?php echo anchor(site_url('tbl_tipe/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
                                 </div>
                             </div>
-                            <div class='col-md-3'>
+                            <!-- <div class='col-md-3'>
                                 <form action="<?php echo site_url('tbl_tipe/index'); ?>" class="form-inline"
                                     method="get">
                                     <div class="input-group">
@@ -33,7 +37,7 @@
                                         </span>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -54,13 +58,17 @@
 
                             </div>
                         </div>
-                        <table class="table table-bordered" style="margin-bottom: 10px">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama Merk</th>
                                 <th>Nama Tipe</th>
                                 <th>Action</th>
-                            </tr><?php
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
                             foreach ($tbl_tipe_data as $tbl_tipe) {
                                 ?>
                                 <tr>
@@ -81,18 +89,18 @@
                                 <?php
                             }
                             ?>
+                            </tbody>
                         </table>
-                        <div class="row">
-                            <div class="col-md-6">
-
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <?php echo $pagination ?>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            'responsive': true
+        });
+    });
+</script>

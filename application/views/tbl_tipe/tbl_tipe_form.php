@@ -23,9 +23,9 @@
 						<td width='200'>Nama Tipe <?php echo form_error('nama_tipe') ?></td><td><input type="text" class="form-control" name="nama_tipe" id="nama_tipe" placeholder="Nama Tipe" value="<?php echo $nama_tipe; ?>" /></td>
 					</tr>
 
-					<tr>
+					<!-- <tr>
 						<td width='200'>Harga Jual Baru <?php echo form_error('harga_jual') ?></td><td><input type="number" class="form-control" name="harga_jual" id="harga_jual" placeholder="Harga Baru" value="<?php echo $harga_jual; ?>" /></td>
-					</tr>
+					</tr> -->
 	
 					<tr>
 						<td></td>

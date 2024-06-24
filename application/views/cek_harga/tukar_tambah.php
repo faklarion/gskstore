@@ -160,12 +160,12 @@
             <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data" autocomplete="off">
             <div class="container my-2">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px; ">
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
                             <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
                                 <option value="">Cari Harga handphone yang ingin kamu jual </option>
                                 <?php foreach ($tipe as $dataTipe): ?>
@@ -177,12 +177,12 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px;">
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>

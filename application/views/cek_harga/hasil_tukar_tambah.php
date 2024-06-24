@@ -158,7 +158,7 @@
             <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data" autocomplete="off">
             <div class="container my-2">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
@@ -175,7 +175,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>

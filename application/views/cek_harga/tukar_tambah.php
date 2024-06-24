@@ -113,7 +113,7 @@
 <body style="background-color: #ffffff;">
 <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
-                <a class="text-center" href="<?php echo site_url('tukar_tambah_android')?>">
+                <a class="text-center" href="https://syihabstore.id">
                 <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
@@ -221,10 +221,22 @@
 </html>
 <script>
     $(document).ready(function () {
-        $('.js-example-basic-single').select2({
+        $('#id_tipe').select2({
             width: '100%',
             allowClear: true,
-            placeholder: '<i class="fa fa-search"></i> Cari HP yang kamu jual..',
+            placeholder: '<i class="fa fa-search"></i> <small>HP di jual..</small>',
+            escapeMarkup: function (markup) {
+                return markup;
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#id_baru').select2({
+            width: '100%',
+            allowClear: true,
+            placeholder: '<i class="fa fa-search"></i> <small>HP di beli..</small>',
             escapeMarkup: function (markup) {
                 return markup;
             }

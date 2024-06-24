@@ -112,7 +112,7 @@
 <body style="background-color: #ffffff;">
 <nav class="navbar bg-dark">
             <div class="container-fluid justify-content-center" style="min-height: 10%;">
-                    <a class="text-center" href="<?php echo site_url('tukar_tambah_android')?>">
+                    <a class="text-center" href="https://syihabstore.id">
                     <img src="<?= base_url('assets/img/gsklogogold.png') ?>" width="150px">
                 </a>
             </div>
@@ -163,7 +163,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px;">
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
                             <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
                                 <option value="">Cari Harga handphone yang ingin kamu jual </option>
                                 <?php foreach ($tipe as $dataTipe): ?>
@@ -180,7 +180,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image" style="height: 500px;">
+                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>
@@ -242,10 +242,22 @@
 </html>
 <script>
     $(document).ready(function () {
-        $('.js-example-basic-single').select2({
+        $('#id_tipe').select2({
             width: '100%',
             allowClear: true,
-            placeholder: '<i class="fa fa-search"></i> Cari HP yang kamu jual..',
+            placeholder: '<i class="fa fa-search"></i> <small>HP di jual..</small>',
+            escapeMarkup: function (markup) {
+                return markup;
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#id_baru').select2({
+            width: '100%',
+            allowClear: true,
+            placeholder: '<i class="fa fa-search"></i> <small>HP di beli..</small>',
             escapeMarkup: function (markup) {
                 return markup;
             }

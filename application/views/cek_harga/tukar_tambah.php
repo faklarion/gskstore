@@ -9,6 +9,12 @@
             <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
                     Handphone Apple Kamu Disini </b></h3>
         </div>
+        <div class="container" width="50%">
+            <b><a class="text-muted hover-overlay" style="font-family: Arial, Helvetica, sans-serif;"
+                    href="<?php echo site_url('tukar_tambah_android/') ?>">Halaman Utama </a></b><i
+                class="fa fa-chevron-right text-muted"></i> <b class="text-muted"
+                style="font-family: Arial, Helvetica, sans-serif;">Apple</b>
+        </div>
 
         <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data"
             autocomplete="off">

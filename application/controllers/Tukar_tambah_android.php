@@ -8,7 +8,7 @@ class Tukar_tambah_android extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        
+        $this->load->model('Tbl_baru_model');
         $this->load->model('Tbl_harga_model');
         $this->load->library('form_validation');
     }
@@ -110,6 +110,14 @@ class Tukar_tambah_android extends CI_Controller
 
 
     public function tt_action() {
+
+        $result = $this->Tbl_baru_model->get_image_url($this->input->get('id_baru'));
+
+        if ($result) {
+            $gambar = $result->gambar_baru; // Adjust according to your database field
+        } else {
+            $gambar = 'ilustrasihp.jpg';
+        }
     
         $merk = $this->input->get('nama_merk');
         $idMerk = $this->input->get('id_merk');
@@ -121,6 +129,7 @@ class Tukar_tambah_android extends CI_Controller
             'id_baru'   => $this->input->get('id_baru'),
             'merk'      => $merk,
             'idMerk'    => $idMerk,
+            'gambar'    => $gambar,
         );
         $this->load->view('cek_harga/hasil_tukar_tambah_android.php', $data);
     }

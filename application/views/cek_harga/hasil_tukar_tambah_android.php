@@ -243,6 +243,8 @@
 
 </body>
 
+<?php include 'footer.php'; ?>
+
 </html>
 <script>
     $(document).ready(function () {

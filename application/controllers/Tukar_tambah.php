@@ -55,6 +55,10 @@ class Tukar_tambah extends CI_Controller
         $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
     }
 
+    public function instagram() {
+        $this->load->view('cek_harga/instagram.php');
+    }
+
 }
 
 /* End of file Cek_harga.php */

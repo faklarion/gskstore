@@ -22,6 +22,12 @@ class Tbl_baru_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    public function get_image_url($image_id) {
+        $this->db->where($this->id, $image_id);
+        $query = $this->db->get($this->table);
+        return $query->row();
+    }
+
     // get data by id
     function get_by_id($id)
     {

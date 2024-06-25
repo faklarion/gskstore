@@ -8,7 +8,7 @@ class Tukar_tambah extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        
+        $this->load->model('Tbl_baru_model');
         $this->load->model('Tbl_harga_model');
         $this->load->library('form_validation');
     }
@@ -22,13 +22,35 @@ class Tukar_tambah extends CI_Controller
         $this->load->view('cek_harga/tukar_tambah.php', $data);
     }
 
+    public function get_image_url() {
+        $id_baru = $this->input->post('id_baru');
+        // Fetch the image URL from the database based on the id_baru
+       
+        $result = $this->Tbl_baru_model->get_image_url($id_baru); // Replace with your method to fetch image URL
+
+        if ($result) {
+            echo json_encode(['gambar_baru' => $result->gambar_baru]); // Adjust according to your database field
+        } else {
+            echo json_encode(['gambar_baru' => null]);
+        }
+    }
+
     public function tt_action() {
+
+        $result = $this->Tbl_baru_model->get_image_url($this->input->get('id_baru'));
+
+        if ($result) {
+            $gambar = $result->gambar_baru; // Adjust according to your database field
+        } else {
+            $gambar = 'ilustrasihp.jpg';
+        }
     
         $data = array(
             'tipe'      => $this->Tbl_harga_model->get_all_tt(),
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
             'id_tipe'   => $this->input->get('id_tipe'),
             'id_baru'   => $this->input->get('id_baru'),
+            'gambar'    => $gambar,
         );
         $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
     }

@@ -17,9 +17,37 @@
     <script src="<?= base_url('assets/vendor/number/jquery.number.min.js'); ?>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="<?= base_url('assets/vendor/select2/select2.min.css'); ?>" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#id_baru').change(function () {
+                var id_baru = $(this).val();
+                console.log('Selected ID:', id_baru); // Debug log
+                $.ajax({
+                    url: '<?php echo site_url("tukar_tambah/get_image_url"); ?>',
+                    method: 'POST',
+                    data: { id_baru: id_baru },
+                    success: function (response) {
+                        console.log('AJAX Response:', response); // Debug log
+                        try {
+                            var data = JSON.parse(response);
+                            var imagePath = data.gambar_baru ? '<?php echo base_url("assets/hpbaru/"); ?>' + data.gambar_baru : '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
+                            console.log('Constructed Image Path:', imagePath); // Debug log
+                            $('#displayImage').attr('src', imagePath); // Update image source
+                        } catch (e) {
+                            console.error('Error parsing JSON:', e);
+                        }
+                    },
+                });
+            });
+
+            // Trigger initial image load based on the default selected option
+            var initialImagePath = $('#id_baru option:selected').data('gambar_baru') ? '<?php echo base_url(); ?>' + $('#id_baru option:selected').data('gambar_baru') : '<?php echo base_url("assets/hpbaru/$gambar"); ?>';
+            console.log('Initial Image Path:', initialImagePath); // Debug log
+            $('#displayImage').attr('src', initialImagePath); // Set initial image
+        });
+    </script>
 </head>
 
 <!-- <script>
@@ -59,6 +87,20 @@
         height: 30px;
     }
 
+    #displayImage {
+            height: auto;
+            /* Allows the image to scale proportionally */
+            max-width: 70%;
+            /* Prevents image from exceeding its original size */
+        }
+
+        #displayImageBekas {
+            height: auto;
+            /* Allows the image to scale proportionally */
+            max-width: 70%;
+            /* Prevents image from exceeding its original size */
+        }
+
     .select2-container--classic .select2-selection--single .select2-selection__arrow b {
         background-image: url(https://cdn4.iconfinder.com/data/icons/user-interface-174/32/UIF-76-512.png);
         background-color: transparent;
@@ -69,6 +111,12 @@
         margin: auto !important;
         top: auto !important;
         left: auto !important;
+    }
+
+    .select2-container .select2-selection {
+            border-radius: 20px;
+            height: 30px;
+            font-size: 14px;
     }
 
     .custom-search {
@@ -158,12 +206,15 @@
             <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data" autocomplete="off">
             <div class="container my-2">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
+                                <p class="text-center">
+                                    <img id="displayImageBekas" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
+                                </p>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
+                            
                             <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
                                 <option value="">Cari Harga handphone yang ingin kamu jual </option>
                                 <?php foreach ($tipe as $dataTipe): ?>
@@ -175,12 +226,14 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Apple</h5>
+                                <p class="text-center">
+                                    <img id="displayImage" src="<?php echo base_url("assets/hpbaru/$gambar"); ?>" alt="Selected Image">
+                                </p>
                             </div>
-                            <img src="<?php echo base_url('assets/img/ilustrasihp.jpg')?>" class="card-img-top" alt="Card image">
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>

@@ -56,8 +56,9 @@
 </script> -->
 <style>
     .select2-container .select2-selection {
-        border-radius: 20px;
-        height: 30px;
+            border-radius: 20px;
+            height: 30px;
+            font-size: 14px;
     }
 
     .select2-container--classic .select2-selection--single .select2-selection__arrow b {
@@ -163,7 +164,7 @@
             <input type="hidden" name="nama_merk" value="<?php echo $merk ?>"/>
             <div class="container my-2">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center"><?php echo $merk ?></h5>
@@ -180,7 +181,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title text-center"><?php echo $merk ?></h5>

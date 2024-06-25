@@ -35,12 +35,12 @@
         <table id="example" class="table table-bordered" style="margin-bottom: 10px">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Nama Baru</th>
-                    <th>Memori Baru</th>
-                    <th>Harga Baru</th>
-                    <th>Gambar Baru</th>
-                    <th>Action</th>
+                    <th class="text-center">No</th>
+                    <th class="text-center">Nama Baru</th>
+                    <th class="text-center">Memori Baru</th>
+                    <th class="text-center">Harga Baru</th>
+                    <th class="text-center">Gambar</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,8 +52,8 @@
                     <td width="10px"><?php echo ++$start ?></td>
                     <td><?php echo $tbl_baru->nama_baru ?></td>
                     <td><?php echo $tbl_baru->memori_baru ?></td>
-                    <td><?php echo $tbl_baru->harga_baru ?></td>
-                    <td><?php echo $tbl_baru->gambar_baru ?></td>
+                    <td><?php echo rupiah($tbl_baru->harga_baru) ?></td>
+                    <td class="text-center"><img src="<?php echo base_url('assets/hpbaru/'.$tbl_baru->gambar_baru.'')?>" alt="<?php echo $tbl_baru->gambar_baru?>" width="20%"></td>
                     <td style="text-align:center" width="200px">
                         <?php 
                         //echo anchor(site_url('tbl_baru/read/'.$tbl_baru->id_baru),'<i class="fa fa-eye" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 

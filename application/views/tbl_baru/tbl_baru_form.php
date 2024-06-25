@@ -2,9 +2,9 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA TBL_BARU</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA HP BARU</h3>
 			</div>
-			<form action="<?php echo $action; ?>" method="post">
+			<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 			
 				<table class='table table-bordered'>
 	
@@ -17,12 +17,12 @@
 					</tr>
 	
 					<tr>
-						<td width='200'>Harga Baru <?php echo form_error('harga_baru') ?></td><td><input type="text" class="form-control" name="harga_baru" id="harga_baru" placeholder="Harga Baru" value="<?php echo $harga_baru; ?>" /></td>
+						<td width='200'>Harga Baru <?php echo form_error('harga_baru') ?></td><td><input type="number" class="form-control" name="harga_baru" id="harga_baru" placeholder="Harga Baru" value="<?php echo $harga_baru; ?>" /></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Gambar Baru <?php echo form_error('gambar_baru') ?></td>
-						<td> <textarea class="form-control" rows="3" name="gambar_baru" id="gambar_baru" placeholder="Gambar Baru"><?php echo $gambar_baru; ?></textarea></td>
+						<td width='200'>Gambar </td>
+						<td> <input type="file" class="form-control" rows="3" name="gambar_baru" id="gambar_baru" placeholder="Gambar Baru"><?php echo $gambar_baru; ?></td>
 					</tr>
 	
 					<tr>

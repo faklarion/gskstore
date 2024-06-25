@@ -80,6 +80,7 @@ class Tbl_baru extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
+        $foto = $this->upload_foto();
 
         if ($this->form_validation->run() == FALSE) {
             $this->create();
@@ -88,11 +89,11 @@ class Tbl_baru extends CI_Controller
             'nama_baru' => $this->input->post('nama_baru',TRUE),
             'memori_baru' => $this->input->post('memori_baru',TRUE),
             'harga_baru' => $this->input->post('harga_baru',TRUE),
-            'gambar_baru' => $this->input->post('gambar_baru',TRUE),
+            'gambar_baru' => $foto['file_name'],
 	    );
 
             $this->Tbl_baru_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('tbl_baru'));
         }
     }
@@ -121,17 +122,25 @@ class Tbl_baru extends CI_Controller
     public function update_action() 
     {
         $this->_rules();
+        $foto = $this->upload_foto();
 
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_baru', TRUE));
         } else {
-            $data = array(
-                'nama_baru' => $this->input->post('nama_baru',TRUE),
-                'memori_baru' => $this->input->post('memori_baru',TRUE),
-                'harga_baru' => $this->input->post('harga_baru',TRUE),
-                'gambar_baru' => $this->input->post('gambar_baru',TRUE),
-	    );
-
+            if ($foto['file_name'] == '') {
+                $data = array(
+                    'nama_baru' => $this->input->post('nama_baru',TRUE),
+                    'memori_baru' => $this->input->post('memori_baru',TRUE),
+                    'harga_baru' => $this->input->post('harga_baru',TRUE),
+            );
+            } else {
+                $data = array(
+                    'nama_baru' => $this->input->post('nama_baru',TRUE),
+                    'memori_baru' => $this->input->post('memori_baru',TRUE),
+                    'harga_baru' => $this->input->post('harga_baru',TRUE),
+                    'gambar_baru' => $foto['file_name'],
+            );
+            }
             $this->Tbl_baru_model->update($this->input->post('id_baru', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('tbl_baru'));
@@ -150,6 +159,18 @@ class Tbl_baru extends CI_Controller
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tbl_baru'));
         }
+    }
+
+    function upload_foto()
+    {
+        $config['upload_path'] = './assets/hpbaru';
+        $config['allowed_types'] = 'gif|jpg|png';
+        //$config['max_size']             = 100;
+        //$config['max_width']            = 1024;
+        //$config['max_height']           = 768;
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('gambar_baru');
+        return $this->upload->data();
     }
 
     public function _rules() 

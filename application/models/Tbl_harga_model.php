@@ -209,7 +209,7 @@ class Tbl_harga_model extends CI_Model
         $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
         $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
-        $this->db->where('tbl_harga.id_tipe in (23,24,40,41,42) AND tbl_harga.id_kondisi = 2');
+        $this->db->where('tbl_harga.id_tipe in (42, 41, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 13, 11, 9, 7, 6, 4, 3, 1) AND tbl_harga.id_kondisi = 2');
         $this->db->order_by('tbl_harga.id_tipe', 'DESC');
         return $this->db->get('tbl_harga')->result();
     }
@@ -226,6 +226,13 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_harga')->result();
     }
 
+    public function get_image_url_bekas($id) {
+        
+        $this->db->join('tbl_harga', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->where('tbl_harga.id_harga', $id);
+        return $this->db->get('tbl_tipe')->row();
+    }
+
     function get_all_tt_by_id($id)
     {
         $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
@@ -233,7 +240,7 @@ class Tbl_harga_model extends CI_Model
         $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
         $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
-        $this->db->where('tbl_harga.id_tipe in (23,24,40,41,42) AND tbl_harga.id_kondisi = 2');
+        $this->db->where('tbl_harga.id_tipe in (42, 41, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 13, 11, 9, 7, 6, 4, 3, 1) AND tbl_harga.id_kondisi = 2');
         $this->db->order_by('tbl_harga.id_tipe', 'DESC');
         $this->db->where('tbl_harga.id_harga', $id);
         return $this->db->get('tbl_harga')->row();

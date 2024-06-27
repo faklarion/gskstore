@@ -112,26 +112,49 @@ class Tukar_tambah_android extends CI_Controller
     public function tt_action() {
 
         $result = $this->Tbl_baru_model->get_image_url($this->input->get('id_baru'));
+        $hasil = $this->Tbl_harga_model->get_image_url_bekas($this->input->get('id_tipe'));
 
         if ($result) {
             $gambar = $result->gambar_baru; // Adjust according to your database field
         } else {
             $gambar = 'ilustrasihp.jpg';
         }
+
+        if ($hasil) {
+            $gambarBekas = $hasil->gambar_tipe; // Adjust according to your database field
+        } else {
+            $gambarBekas = 'ilustrasihp.jpg';
+        }
     
         $merk = $this->input->get('nama_merk');
         $idMerk = $this->input->get('id_merk');
         
         $data = array(
-            'tipe'      => $this->Tbl_harga_model->get_all_tt_android($idMerk),
-            'tipe_baru' => $this->Tbl_harga_model->get_all_baru_android($merk),
-            'id_tipe'   => $this->input->get('id_tipe'),
-            'id_baru'   => $this->input->get('id_baru'),
-            'merk'      => $merk,
-            'idMerk'    => $idMerk,
-            'gambar'    => $gambar,
+            'tipe'          => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'tipe_baru'     => $this->Tbl_harga_model->get_all_baru_android($merk),
+            'id_tipe'       => $this->input->get('id_tipe'),
+            'id_baru'       => $this->input->get('id_baru'),
+            'merk'          => $merk,
+            'idMerk'        => $idMerk,
+            'gambar'        => $gambar,
+            'gambarBekas'   => $gambarBekas,
         );
         $this->load->view('cek_harga/hasil_tukar_tambah_android.php', $data);
+    }
+
+    public function get_image_url_bekas()
+    {
+        $id_harga = $this->input->post('id_tipe');
+        log_message('debug', 'Received id_harga: ' . $id_harga);
+        // Fetch the data based on id_harga from the database
+        $data = $this->Tbl_harga_model->get_image_url_bekas($id_harga);
+        log_message('debug', 'Fetched data: ' . print_r($data, true));
+        
+        if ($data) {
+            echo json_encode(array('gambar_tipe' => $data->gambar_tipe));
+        } else {
+            echo json_encode(array('gambar_tipe' => null));
+        }
     }
 
 }

@@ -148,6 +148,39 @@
 </script>
 <script>
         $(document).ready(function () {
+            $('#id_tipe').change(function () {
+                var id_tipe = $(this).val();
+                console.log('Selected ID:', id_tipe); // Debug log
+                $.ajax({
+                    url: '<?php echo site_url("tukar_tambah_android/get_image_url_bekas"); ?>',
+                    method: 'POST',
+                    data: { id_tipe: id_tipe },
+                    success: function (response) {
+                        console.log('AJAX Response:', response); // Debug log
+                        try {
+                            var data = JSON.parse(response);
+                            var imagePath = data.gambar_tipe ? '<?php echo base_url("assets/hptipe/"); ?>' + data.gambar_tipe : '<?php echo base_url("assets/hptipe/ilustrasihp.jpg"); ?>';
+                            console.log('Constructed Image Path:', imagePath); // Debug log
+                            $('#displayImageBekas').attr('src', imagePath); // Update image source
+                        } catch (e) {
+                            console.error('Error parsing JSON:', e);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error:', status, error);
+                        $('#displayImageBekas').attr('src', '<?php echo base_url("assets/hptipe/ilustrasihp.jpg"); ?>');
+                    }
+                });
+            });
+
+            // Trigger initial image load based on the default selected option
+            var initialImagePath = $('#id_tipe option:selected').data('gambar_tipe') ? '<?php echo base_url(); ?>' + $('#id_tipe option:selected').data('gambar_tipe') : '<?php echo base_url("assets/hptipe/ilustrasihp.jpg"); ?>';
+            console.log('Initial Image Path:', initialImagePath); // Debug log
+            $('#displayImageBekas').attr('src', initialImagePath); // Set initial image
+        });
+    </script>
+<script>
+        $(document).ready(function () {
             $('#id_baru').change(function () {
                 var id_baru = $(this).val();
                 console.log('Selected ID:', id_baru); // Debug log

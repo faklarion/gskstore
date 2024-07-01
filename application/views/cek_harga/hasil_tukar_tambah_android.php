@@ -66,7 +66,7 @@
                                 <option value="">Cari Harga handphone yang ingin kamu jual </option>
                                 <?php foreach ($tipe as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_harga ?>" <?php if($dataTipe->id_harga==$id_tipe) echo 'selected="selected"'; ?>>
-                                        <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?>
+                                        <?= $dataTipe->nama_merk ?> <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?> 
                                     </option>
                                 <?php endforeach ?>
                                 </optgroup>
@@ -131,7 +131,7 @@
             <div class="container">
                     <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah harga estimasi tukar tambah dan bisa berubah sewaktu waktu.
                     <br>Hubungi call center sekarang sebelum harga berubah.</p>
-                    <p class="text-center"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
+                    <p class="text-center"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
             </div>
         </div>
     </section>

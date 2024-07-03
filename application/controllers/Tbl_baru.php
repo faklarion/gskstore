@@ -11,6 +11,7 @@ class Tbl_baru extends CI_Controller
         is_login();
         $this->load->model('Tbl_baru_model');
         $this->load->library('form_validation');
+        $this->load->library('GoogleSheets');
     }
 
     public function index()
@@ -61,6 +62,18 @@ class Tbl_baru extends CI_Controller
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('tbl_baru'));
         }
+    }
+
+    public function index_sheet() {
+        $spreadsheetId = '1I-6o-vBmF3Fbkmm1k6kxjsYGV8OqckskrGpgwyGd748'; // Ganti dengan Spreadsheet ID Anda
+        $range = 'Sheet1!A1:C1000'; // Ganti dengan range yang ingin Anda baca
+        $values = $this->googlesheets->readSheet($spreadsheetId, $range);
+    
+        // Kirim data ke view
+        $data = array(
+            'sheet_data' => $values,
+        );
+        $this->template->load('template','tbl_baru/tbl_baru_read_sheets', $data);
     }
 
     public function create() 

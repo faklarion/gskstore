@@ -15,9 +15,22 @@ class Tukar_tambah extends CI_Controller
 
     public function index() {
 
+        $samsung    = 'Samsung';
+        $vivo       = 'Vivo';
+        $oppo       = 'Oppo';
+        $infinix    = 'Infinix';
+        $realme     = 'Realme';
+        $xiaomi     = 'Xiaomi';
+
         $data = array(
             'tipe'      => $this->Tbl_harga_model->get_all_tt(),
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
+            'samsung'  => $this->Tbl_harga_model->get_all_baru_android($samsung),
+            'vivo'  => $this->Tbl_harga_model->get_all_baru_android($vivo),
+            'oppo'  => $this->Tbl_harga_model->get_all_baru_android($oppo),
+            'infinix'  => $this->Tbl_harga_model->get_all_baru_android($infinix),
+            'realme'  => $this->Tbl_harga_model->get_all_baru_android($realme),
+            'xiaomi'  => $this->Tbl_harga_model->get_all_baru_android($xiaomi),
         );
         $this->load->view('cek_harga/tukar_tambah.php', $data);
     }
@@ -65,6 +78,13 @@ class Tukar_tambah extends CI_Controller
         } else {
             $gambarBekas = 'ilustrasihp.jpg';
         }
+
+        $samsung    = 'Samsung';
+        $vivo       = 'Vivo';
+        $oppo       = 'Oppo';
+        $infinix    = 'Infinix';
+        $realme     = 'Realme';
+        $xiaomi     = 'Xiaomi';
     
         $data = array(
             'tipe'              => $this->Tbl_harga_model->get_all_tt(),
@@ -73,6 +93,12 @@ class Tukar_tambah extends CI_Controller
             'id_baru'           => $this->input->get('id_baru'),
             'gambar'            => $gambar,
             'gambarBekas'       => $gambarBekas,
+            'samsung'           => $this->Tbl_harga_model->get_all_baru_android($samsung),
+            'vivo'              => $this->Tbl_harga_model->get_all_baru_android($vivo),
+            'oppo'              => $this->Tbl_harga_model->get_all_baru_android($oppo),
+            'infinix'           => $this->Tbl_harga_model->get_all_baru_android($infinix),
+            'realme'            => $this->Tbl_harga_model->get_all_baru_android($realme),
+            'xiaomi'            => $this->Tbl_harga_model->get_all_baru_android($xiaomi),
         );
         $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
     }

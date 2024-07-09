@@ -259,10 +259,24 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_harga')->row();
     }
 
+    function get_all_harga_tt_by_id($id)
+    {
+        $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');
+        $this->db->join('tbl_kualifikasi', 'tbl_kualifikasi.id_kualifikasi = tbl_harga.id_kualifikasi');
+        $this->db->join('tbl_kondisi', 'tbl_kondisi.id_kondisi = tbl_harga.id_kondisi');
+        $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
+        $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
+        $this->db->where("tbl_harga.id_kondisi = 2");
+        $this->db->where('tbl_harga.id_harga', $id);
+        $this->db->order_by('tbl_harga.id_tipe', 'ASC');
+        return $this->db->get('tbl_harga')->row();
+    }
+
+
     function get_all_baru()
     {
         $this->db->select('*');
-        $this->db->like('nama_baru', 'iPhone', 'after'); 
+        $this->db->like('nama_baru', 'Apple', 'after'); 
         $this->db->order_by('id_baru', 'DESC');
         return $this->db->get('tbl_baru')->result();
     }

@@ -50,43 +50,80 @@
                 </div>
             </form> -->
             <form action="<?php echo site_url('tukar_tambah_android/tt_action') ?>" method="get" enctype="multipart/form-data" autocomplete="off">
-            <input type="hidden" name="id_merk" value="<?php echo $idMerk ?>"/>
-            <input type="hidden" name="nama_merk" value="<?php echo $merk ?>"/>
+            <input type="hidden" name="id_merk" value="<?php echo $idMerk ?>">
+            <input type="hidden" name="nama_merk" value="<?php echo $merk ?>">
             <div class="container my-2">
                 <div class="row">
                     <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="card-title text-center"><?php echo $merk ?></h5>
+                                <h5 class="card-title text-center"><?= $merk ?></h5>
                                 <p class="text-center">
                                     <img id="displayImageBekas" src="<?php echo base_url("assets/hptipe/$gambarBekas"); ?>" alt="Selected Image">
                                 </p>
                             </div>
+                            
                             <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
                                 <option value="">Cari Harga handphone yang ingin kamu jual </option>
                                 <?php foreach ($tipe as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_harga ?>" <?php if($dataTipe->id_harga==$id_tipe) echo 'selected="selected"'; ?>>
-                                        <?= $dataTipe->nama_merk ?> <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?> 
+                                    <?= $dataTipe->nama_merk ?> <?= $dataTipe->nama_tipe ?> / <?= $dataTipe->nama_memori ?>
                                     </option>
                                 <?php endforeach ?>
-                                </optgroup>
                             </select>
                         </div>
                     </div>
                     <div class="col-6 p-1">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="card-title text-center"><?php echo $merk ?></h5>
+                                <h5 class="card-title text-center" id="dynamicLabel">
+                                    <?php $baru = $this->Tbl_baru_model->get_by_id($id_baru);
+                                        $myvalue = $baru->nama_baru;
+                                        $firstWord = strtok($myvalue, ' ');
+                                        echo $firstWord;
+                                    ?>
+                                </h5>
                                 <p class="text-center">
                                     <img id="displayImage" src="<?php echo base_url("assets/hpbaru/$gambar"); ?>" alt="Selected Image">
                                 </p>
                             </div>
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
-                                <?php foreach ($tipe_baru as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> <?= $dataTipe->memori_baru ?> </option>
+                                <?php foreach ($apple as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
                                 <?php endforeach ?>
-                                </optgroup>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($oppo as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($vivo as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($samsung as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($infinix as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($xiaomi as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <?php foreach ($realme as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
+                                        <?= $dataTipe->memori_baru ?> </option>
+                                <?php endforeach ?>
+                                
                             </select>
                         </div>
                     </div>
@@ -98,7 +135,7 @@
                     </div>
                 </div>
             </div>
-            </form> 
+            </form>
 
            
             <?php 
@@ -198,6 +235,9 @@
         $(document).ready(function () {
             $('#id_baru').change(function () {
                 var id_baru = $(this).val();
+                var selectedOptionText = $(this).find('option:selected').text();
+                const words = selectedOptionText.trim().split(' '); // Split into an array of words
+                const firstWord = words[0];
                 console.log('Selected ID:', id_baru); // Debug log
                 $.ajax({
                     url: '<?php echo site_url("tukar_tambah/get_image_url"); ?>',
@@ -210,6 +250,7 @@
                             var imagePath = data.gambar_baru ? '<?php echo base_url("assets/hpbaru/"); ?>' + data.gambar_baru : '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
                             console.log('Constructed Image Path:', imagePath); // Debug log
                             $('#displayImage').attr('src', imagePath); // Update image source
+                            $('#dynamicLabel').text(firstWord); // Update label text
                         } catch (e) {
                             console.error('Error parsing JSON:', e);
                         }

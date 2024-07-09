@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <?php include 'header_ip.php';?>
 
 <body style="background-color: #ffffff;">
@@ -45,15 +44,50 @@
                     <div class="col-6 p-1">
                         <div class="card mb-2">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Apple</h5>
+                                <h5 class="card-title text-center" id="dynamicLabel">Apple</h5>
                                 <p class="text-center">
                                     <img id="displayImage" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
                                 </p>
                             </div>
                             
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
-                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                <option value="">Apple</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($oppo as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($vivo as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($samsung as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($oppo as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($infinix as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($xiaomi as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
+                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                    </option>
+                                <?php endforeach ?>
+                                <?php foreach ($realme as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
                                         <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
                                     </option>
@@ -100,15 +134,8 @@
                     return markup;
                 }
             });
-        });
-    </script>
-</body>
 
-<?php include 'footer.php'; ?>
-
-</html>
-<script>
-        $(document).ready(function () {
+            // For the first dropdown (id_tipe)
             $('#id_tipe').change(function () {
                 var id_tipe = $(this).val();
                 console.log('Selected ID:', id_tipe); // Debug log
@@ -138,12 +165,13 @@
             var initialImagePath = $('#id_tipe option:selected').data('gambar_tipe') ? '<?php echo base_url(); ?>' + $('#id_tipe option:selected').data('gambar_tipe') : '<?php echo base_url("assets/hptipe/ilustrasihp.jpg"); ?>';
             console.log('Initial Image Path:', initialImagePath); // Debug log
             $('#displayImageBekas').attr('src', initialImagePath); // Set initial image
-        });
-    </script>
-<script>
-        $(document).ready(function () {
+
+            // For the second dropdown (id_baru)
             $('#id_baru').change(function () {
                 var id_baru = $(this).val();
+                var selectedOptionText = $(this).find('option:selected').text();
+                const words = selectedOptionText.trim().split(' '); // Split into an array of words
+                const firstWord = words[0];
                 console.log('Selected ID:', id_baru); // Debug log
                 $.ajax({
                     url: '<?php echo site_url("tukar_tambah/get_image_url"); ?>',
@@ -156,6 +184,7 @@
                             var imagePath = data.gambar_baru ? '<?php echo base_url("assets/hpbaru/"); ?>' + data.gambar_baru : '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
                             console.log('Constructed Image Path:', imagePath); // Debug log
                             $('#displayImage').attr('src', imagePath); // Update image source
+                            $('#dynamicLabel').text(firstWord); // Update label text
                         } catch (e) {
                             console.error('Error parsing JSON:', e);
                         }
@@ -163,14 +192,21 @@
                     error: function (xhr, status, error) {
                         console.error('AJAX Error:', status, error);
                         $('#displayImage').attr('src', '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>');
+                        $('#dynamicLabel').text('Apple'); // Reset to default label
                     }
                 });
             });
 
             // Trigger initial image load based on the default selected option
-            var initialImagePath = $('#id_baru option:selected').data('gambar_baru') ? '<?php echo base_url(); ?>' + $('#id_baru option:selected').data('gambar_baru') : '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
-            console.log('Initial Image Path:', initialImagePath); // Debug log
-            $('#displayImage').attr('src', initialImagePath); // Set initial image
+            var initialImagePath2 = $('#id_baru option:selected').data('gambar_baru') ? '<?php echo base_url(); ?>' + $('#id_baru option:selected').data('gambar_baru') : '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
+            var initialLabelText = $('#id_baru option:selected').text().split(' ')[0];
+            console.log('Initial Image Path:', initialImagePath2); // Debug log
+            $('#displayImage').attr('src', initialImagePath2); // Set initial image
+            $('#dynamicLabel').text(initialLabelText); // Set initial label
         });
     </script>
+</body>
 
+<?php include 'footer.php'; ?>
+
+</html>

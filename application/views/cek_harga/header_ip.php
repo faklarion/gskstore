@@ -3,9 +3,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="<?= base_url('assets/img/gsk-favicon.png') ?>" type="image/x-icon">
-    <meta name="description"
-        content="Cek Harga Second Handphone Kamu Dan Dapatkan Harga Terbaik Hanya Di Galery Second Kalimantan.">
-    <title>Dapatkan Penawaran Harga Terbaik Handphone Kamu Di Galery Second Kalimantan</title>
+    <meta name="description" content="Cek Harga Tukar Tambah HP Kamu di Galery Second Kalimantan.">
+    <meta name="keywords" content="GSK Banjarmasin, GSK Banjarbaru, Galeri Second Kalimantan, Tukar Tambah HP Banjarmasin, Tukar Tambah HP Banjarbaru, GSK">
+    <title>Dapatkan Penawaran Harga Tukar Tambah Terbaik di Galery Second Kalimantan</title>
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="<?php echo base_url() ?>assets/adminlte/bower_components/font-awesome/css/font-awesome.min.css">

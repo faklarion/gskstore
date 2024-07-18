@@ -53,7 +53,6 @@ class Tbl_baru extends CI_Controller
             $data = array(
 		'id_baru' => $row->id_baru,
 		'nama_baru' => $row->nama_baru,
-		'memori_baru' => $row->memori_baru,
 		'harga_baru' => $row->harga_baru,
 		'gambar_baru' => $row->gambar_baru,
 	    );
@@ -83,7 +82,6 @@ class Tbl_baru extends CI_Controller
             'action' => site_url('tbl_baru/create_action'),
             'id_baru' => set_value('id_baru'),
             'nama_baru' => set_value('nama_baru'),
-            'memori_baru' => set_value('memori_baru'),
             'harga_baru' => set_value('harga_baru'),
             'gambar_baru' => set_value('gambar_baru'),
 	);
@@ -100,7 +98,6 @@ class Tbl_baru extends CI_Controller
         } else {
             $data = array(
             'nama_baru' => $this->input->post('nama_baru',TRUE),
-            'memori_baru' => $this->input->post('memori_baru',TRUE),
             'harga_baru' => $this->input->post('harga_baru',TRUE),
             'gambar_baru' => $foto['file_name'],
 	    );
@@ -121,7 +118,6 @@ class Tbl_baru extends CI_Controller
                 'action' => site_url('tbl_baru/update_action'),
                 'id_baru' => set_value('id_baru', $row->id_baru),
                 'nama_baru' => set_value('nama_baru', $row->nama_baru),
-                'memori_baru' => set_value('memori_baru', $row->memori_baru),
                 'harga_baru' => set_value('harga_baru', $row->harga_baru),
                 'gambar_baru' => set_value('gambar_baru', $row->gambar_baru),
 	    );
@@ -143,13 +139,11 @@ class Tbl_baru extends CI_Controller
             if ($foto['file_name'] == '') {
                 $data = array(
                     'nama_baru' => $this->input->post('nama_baru',TRUE),
-                    'memori_baru' => $this->input->post('memori_baru',TRUE),
                     'harga_baru' => $this->input->post('harga_baru',TRUE),
             );
             } else {
                 $data = array(
                     'nama_baru' => $this->input->post('nama_baru',TRUE),
-                    'memori_baru' => $this->input->post('memori_baru',TRUE),
                     'harga_baru' => $this->input->post('harga_baru',TRUE),
                     'gambar_baru' => $foto['file_name'],
             );
@@ -189,7 +183,6 @@ class Tbl_baru extends CI_Controller
     public function _rules() 
     {
 	$this->form_validation->set_rules('nama_baru', 'nama baru', 'trim|required');
-	$this->form_validation->set_rules('memori_baru', 'memori baru', 'trim|required');
 	$this->form_validation->set_rules('harga_baru', 'harga baru', 'trim|required');
 	//$this->form_validation->set_rules('gambar_baru', 'gambar baru', 'trim|required');
 

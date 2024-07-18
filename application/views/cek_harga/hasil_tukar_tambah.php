@@ -33,8 +33,7 @@
                     <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                         <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                         <?php foreach ($tipe_baru as $dataTipe): ?>
-                            <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                <?= $dataTipe->memori_baru ?> </option>
+                            <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> 
                         <?php endforeach ?>
                         </optgroup>
                     </select>
@@ -80,38 +79,31 @@
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> 
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($oppo as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> 
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($vivo as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?>
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($samsung as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?>
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($infinix as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?>
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($xiaomi as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> 
                                 <?php endforeach ?>
                                 <option value="">Cari Harga handphone yang ingin kamu tukar</option>
                                 <?php foreach ($realme as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> /
-                                        <?= $dataTipe->memori_baru ?> </option>
+                                    <option value="<?= $dataTipe->id_baru ?>" <?php if($dataTipe->id_baru==$id_baru) echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?> 
                                 <?php endforeach ?>
                                 
                             </select>

@@ -16,11 +16,6 @@
 			</tr>
 	
 			<tr>
-				<td>Memori Baru</td>
-				<td><?php echo $memori_baru; ?></td>
-			</tr>
-	
-			<tr>
 				<td>Harga Baru</td>
 				<td><?php echo $harga_baru; ?></td>
 			</tr>

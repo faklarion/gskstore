@@ -11,11 +11,7 @@
 					<tr>
 						<td width='200'>Nama Baru <?php echo form_error('nama_baru') ?></td><td><input type="text" class="form-control" name="nama_baru" id="nama_baru" placeholder="Nama Baru" value="<?php echo $nama_baru; ?>" /></td>
 					</tr>
-	
-					<tr>
-						<td width='200'>Memori Baru <?php echo form_error('memori_baru') ?></td><td><input type="text" class="form-control" name="memori_baru" id="memori_baru" placeholder="Memori Baru" value="<?php echo $memori_baru; ?>" /></td>
-					</tr>
-	
+					
 					<tr>
 						<td width='200'>Harga Baru <?php echo form_error('harga_baru') ?></td><td><input type="number" class="form-control" name="harga_baru" id="harga_baru" placeholder="Harga Baru" value="<?php echo $harga_baru; ?>" /></td>
 					</tr>

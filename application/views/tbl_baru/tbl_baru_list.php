@@ -37,7 +37,6 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nama Baru</th>
-                    <th class="text-center">Memori Baru</th>
                     <th class="text-center">Harga Baru</th>
                     <th class="text-center">Gambar</th>
                     <th class="text-center">Action</th>
@@ -51,7 +50,6 @@
                 <tr>
                     <td width="10px"><?php echo ++$start ?></td>
                     <td><?php echo $tbl_baru->nama_baru ?></td>
-                    <td><?php echo $tbl_baru->memori_baru ?></td>
                     <td><?php echo rupiah($tbl_baru->harga_baru) ?></td>
                     <td class="text-center"><img src="<?php echo base_url('assets/hpbaru/'.$tbl_baru->gambar_baru.'')?>" alt="<?php echo $tbl_baru->gambar_baru?>" width="20%"></td>
                     <td style="text-align:center" width="200px">

@@ -54,42 +54,42 @@
                                 <option value="">Apple</option>
                                 <?php foreach ($tipe_baru as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($oppo as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($vivo as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($samsung as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($oppo as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($infinix as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($xiaomi as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                                 <?php foreach ($realme as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?> / <?= $dataTipe->memori_baru ?></small>
+                                        <small><?= $dataTipe->nama_baru ?></small>
                                     </option>
                                 <?php endforeach ?>
                             </select>

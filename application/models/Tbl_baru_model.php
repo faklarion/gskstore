@@ -39,7 +39,6 @@ class Tbl_baru_model extends CI_Model
     function total_rows($q = NULL) {
         $this->db->like('id_baru', $q);
 	$this->db->or_like('nama_baru', $q);
-	$this->db->or_like('memori_baru', $q);
 	$this->db->or_like('harga_baru', $q);
 	$this->db->or_like('gambar_baru', $q);
 	$this->db->from($this->table);
@@ -50,11 +49,10 @@ class Tbl_baru_model extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_baru', $q);
-	$this->db->or_like('nama_baru', $q);
-	$this->db->or_like('memori_baru', $q);
-	$this->db->or_like('harga_baru', $q);
-	$this->db->or_like('gambar_baru', $q);
-	$this->db->limit($limit, $start);
+        $this->db->or_like('nama_baru', $q);
+        $this->db->or_like('harga_baru', $q);
+        $this->db->or_like('gambar_baru', $q);
+        $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
 

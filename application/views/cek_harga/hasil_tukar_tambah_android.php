@@ -258,9 +258,20 @@
                 });
             });
 
-            // Trigger initial image load based on the default selected option
-            var initialImagePath = $('#id_baru option:selected').data('gambar_baru') ? '<?php echo base_url(); ?>' + $('#id_baru option:selected').data('gambar_baru') : '<?php echo base_url("assets/hpbaru/$gambar"); ?>';
+        var selectedOption = $('#id_baru option:selected');
+        var gambarBaru = selectedOption.data('gambar_baru');
+        var base_url = '<?php echo base_url(); ?>';
+        var defaultImage = '<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>';
+
+        var initialImagePath;
+        if (gambarBaru && gambarBaru.trim() !== '') {
+            initialImagePath = base_url + gambarBaru;
+        } else {
+            initialImagePath = defaultImage;
+        }
+
+            var initialLabelText = selectedOption.text().split(' ')[0];
             console.log('Initial Image Path:', initialImagePath); // Debug log
-            $('#displayImage').attr('src', initialImagePath); // Set initial image
+            $('#dynamicLabel').text(initialLabelText); // Set initial label
         });
     </script>

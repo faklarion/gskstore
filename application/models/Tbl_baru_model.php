@@ -22,6 +22,12 @@ class Tbl_baru_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    function get_all_baru()
+    {
+        $this->db->order_by('nama_baru', 'ASC');
+        return $this->db->get($this->table)->result();
+    }
+
     public function get_image_url($image_id) {
         $this->db->where($this->id, $image_id);
         $query = $this->db->get($this->table);

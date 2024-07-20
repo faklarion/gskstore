@@ -6,17 +6,19 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-warning box-solid">
-    
                     <div class="box-header">
                         <h3 class="box-title">KELOLA DATA HP BARU</h3>
                     </div>
         
         <div class="box-body">
             <div class='row'>
-            <div class='col-md-9'>
-            <div style="padding-bottom: 10px;">
-        <?php echo anchor(site_url('tbl_baru/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
-            </div>
+                <div class='col-md-9'>
+                    <div style="padding-bottom: 10px;">
+                        <?php echo anchor(site_url('tbl_baru/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
+                        <?php echo anchor(site_url('tbl_baru/export_excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Excel', 'class="btn btn-info btn-sm"'); ?>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Import Excel</button>
+                    </div>
+                </div>
             </div>
         
    
@@ -58,7 +60,7 @@
                         //echo '  '; 
                         echo anchor(site_url('tbl_baru/update/'.$tbl_baru->id_baru),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
                         echo '  '; 
-                        echo anchor(site_url('tbl_baru/delete/'.$tbl_baru->id_baru),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+                        echo anchor(site_url('tbl_baru/delete/'.$tbl_baru->id_baru),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete onclick="javascript: return confirm(\'Are You Sure ?\')"'); 
                         ?>
                     </td>
                 </tr>
@@ -73,6 +75,43 @@
             </div>
     </section>
 </div>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- konten modal-->
+			<div class="modal-content">
+				<!-- heading modal -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Import Excel</h4>
+				</div>
+				<!-- body modal -->
+				<div class="modal-body">
+                <form action="<?php echo site_url('tbl_baru/upload_excel') ?>" method="post" enctype="multipart/form-data">
+			    <table class='table table-bordered'>
+	                <tr>
+						<td width='200'>Upload File</td>
+						<td>
+						<input type="file" name="file" id="file" class="form-control" required/>							
+						</td>
+					</tr>
+                    <tr>
+						<td></td>
+						<td>
+							<button type="submit" class="btn btn-danger"><i class="fa fa-floppy-o"></i> Import</button> 
+							<a href="<?php echo site_url('tbl_harga') ?>" class="btn btn-info"><i class="fa fa-sign-out"></i> Kembali</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+				</div>
+				<!-- footer modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <script>
     $(document).ready(function () {
         var table = $('#example').DataTable({

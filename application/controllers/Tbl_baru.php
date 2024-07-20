@@ -3,6 +3,10 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 class Tbl_baru extends CI_Controller
 {
     function __construct()
@@ -178,6 +182,97 @@ class Tbl_baru extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->do_upload('gambar_baru');
         return $this->upload->data();
+    }
+
+    public function upload_excel() {
+        $this->load->helper('file');
+
+        /* Allowed MIME(s) File */
+        $file_mimes = array(
+            'application/octet-stream', 
+            'application/vnd.ms-excel', 
+            'application/x-csv', 
+            'text/x-csv', 
+            'text/csv', 
+            'application/csv', 
+            'application/excel', 
+            'application/vnd.msexcel', 
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        );
+
+        if(isset($_FILES['file']['name']) && in_array($_FILES['file']['type'], $file_mimes)) {
+
+            $array_file = explode('.', $_FILES['file']['name']);
+            $extension  = end($array_file);
+
+            if('csv' == $extension) {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+            } else {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+
+            $spreadsheet = $reader->load($_FILES['file']['tmp_name']);
+            $sheet_data  = $spreadsheet->getActiveSheet(0)->toArray();
+            $array_data  = [];
+
+            for($i = 0; $i < count($sheet_data); $i++) {
+                $data[]= array(
+                    'id_baru'      => $sheet_data[$i]['1'],
+                    'nama_baru'        => $sheet_data[$i]['2'],
+                    'harga_baru'        => $sheet_data[$i]['3'],
+                );
+            }
+            
+            if($array_data != '') {
+                $this->db->update_batch('tbl_baru', $data, 'id_baru');
+            }
+            $this->session->set_flashdata('message', 'Input Data Success !');
+            redirect(site_url('tbl_baru'));
+        } else {
+            $this->session->set_flashdata('message', 'Input Data Gagal !');
+            redirect(site_url('tbl_baru'));
+        }
+        redirect(site_url('tbl_baru'));
+    }
+
+
+    public function export_excel()
+    {
+        /* Data */
+        $data = $this->Tbl_baru_model->get_all_baru();
+
+        /* Spreadsheet Init */
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        /* Excel Header */
+        $sheet->setCellValue('A1', '#');
+        $sheet->setCellValue('B1', 'ID Baru');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        
+        /* Excel Data */
+        $row_number = 2;
+        foreach($data as $key => $row)
+        {
+            $sheet->setCellValue('A'.$row_number, $key+1);
+            $sheet->setCellValue('B'.$row_number, $row->id_baru);
+            $sheet->setCellValue('C'.$row_number, $row->nama_baru);
+            $sheet->setCellValue('D'.$row_number, $row->harga_baru);
+        
+            $row_number++;
+        }
+
+        /* Excel File Format */
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'excel-report-harga-hpbaru';
+        
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'. $filename .'.xlsx"'); 
+        header('Cache-Control: max-age=0');
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
     }
 
     public function _rules() 

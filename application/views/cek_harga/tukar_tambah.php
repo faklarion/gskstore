@@ -52,42 +52,7 @@
                             
                             <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
                                 <option value="">Apple</option>
-                                <?php foreach ($tipe_baru as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($oppo as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($vivo as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($samsung as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($oppo as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($infinix as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($xiaomi as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
-                                        <small><?= $dataTipe->nama_baru ?></small>
-                                    </option>
-                                <?php endforeach ?>
-                                <?php foreach ($realme as $dataTipe): ?>
+                                <?php foreach ($all_brand as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>">
                                         <small><?= $dataTipe->nama_baru ?></small>
                                     </option>

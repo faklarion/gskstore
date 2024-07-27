@@ -281,6 +281,15 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_baru')->result();
     }
 
+    function get_all_nama_baru()
+    {
+        
+        $this->db->select('*'); // Selects the first word of nama_baru and the full nama_baru column
+        
+        //$this->db->order_by('id_baru', 'DESC'); // Optional: Uncomment to order results by id_baru in descending order
+        return $this->db->get('tbl_merk_baru')->result(); 
+    }
+
     function get_all_baru_android($merk)
     {
         $this->db->select('*');

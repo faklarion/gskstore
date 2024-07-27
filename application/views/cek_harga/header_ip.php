@@ -28,6 +28,12 @@
     gtag('config', 'G-CPJVDNCNJ2');
     </script>
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Mencegah overflow horizontal */
+        }
+
         #displayImage {
             height: auto;
             /* Allows the image to scale proportionally */
@@ -48,6 +54,56 @@
             font-size: 14px;
         }
 
+        .select-container {
+            display: flex;
+            flex-direction: column; /* Default column direction for mobile */
+            gap: 10px; /* Space between selects */
+            width: 100%;
+        }
+
+        .select-container select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .select-container {
+                flex-direction: row; /* Row direction for larger screens */
+            }
+
+            .select-container select {
+                flex: 1; /* Each select takes equal space */
+            }
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .col-6 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Membuat card mengisi penuh ketinggian kolom */
+        .card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
         .select2-container--classic .select2-selection--single .select2-selection__arrow b {
             background-image: url(https://cdn4.iconfinder.com/data/icons/user-interface-174/32/UIF-76-512.png);
             background-color: transparent;

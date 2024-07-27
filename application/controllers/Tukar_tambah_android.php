@@ -42,6 +42,8 @@ class Tukar_tambah_android extends CI_Controller
             'tipe' => $this->Tbl_harga_model->get_all_tt_android($idMerk),
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -64,6 +66,8 @@ class Tukar_tambah_android extends CI_Controller
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
@@ -85,6 +89,8 @@ class Tukar_tambah_android extends CI_Controller
             'tipe' => $this->Tbl_harga_model->get_all_tt_android($idMerk),
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -107,6 +113,8 @@ class Tukar_tambah_android extends CI_Controller
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
@@ -128,7 +136,9 @@ class Tukar_tambah_android extends CI_Controller
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
             'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
@@ -150,6 +160,8 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
             'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
@@ -165,6 +177,7 @@ class Tukar_tambah_android extends CI_Controller
 
         $result = $this->Tbl_baru_model->get_image_url($this->input->get('id_baru'));
         $hasil = $this->Tbl_harga_model->get_image_url_bekas($this->input->get('id_tipe'));
+        $namaBrand = $this->input->get('nama_baru');
 
         if ($result) {
             $gambar = $result->gambar_baru; // Adjust according to your database field
@@ -185,10 +198,13 @@ class Tukar_tambah_android extends CI_Controller
             'tipe' => $this->Tbl_harga_model->get_all_tt_android($idMerk),
             'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
+            'namaBrand'         => $namaBrand,
+            'nama_brand'        => $this->Tbl_harga_model->get_all_nama_baru(),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
             'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
             'id_tipe' => $this->input->get('id_tipe'),
             'id_baru' => $this->input->get('id_baru'),

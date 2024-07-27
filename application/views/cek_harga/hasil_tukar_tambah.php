@@ -85,13 +85,26 @@
                                         alt="Selected Image">
                                 </p>
                             </div>
-                            <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
-                                <option value="">Cari Harga handphone yang ingin kamu tukar</option>
-                                <?php foreach ($all_brand as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->id_baru ?>" <?php if ($dataTipe->id_baru == $id_baru)
-                                          echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?>
-                                    <?php endforeach ?>
-                            </select>
+                            <div class="select-container">
+                                <select name="nama_baru" class="js-example-basic-single" id="nama_baru" required>
+                                        <option value="">Pilih Nama Baru</option>
+                                        <?php foreach ($nama_brand as $dataTipe): ?>
+                                            <option value="<?= $dataTipe->nama_merk_baru ?>" <?php if ($dataTipe->nama_merk_baru == $namaBrand)
+                                            echo 'selected="selected"'; ?>>
+                                                <small><?= $dataTipe->nama_merk_baru ?></small>
+                                            </option>
+                                        <?php endforeach; ?>
+                                </select>
+                                
+                                <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
+                                    <option value="">Cari Harga handphone yang ingin kamu tukar</option>
+                                    <?php foreach ($all_brand as $dataTipe): ?>
+                                        <option value="<?= $dataTipe->id_baru ?>" <?php if ($dataTipe->id_baru == $id_baru)
+                                            echo 'selected="selected"'; ?>><?= $dataTipe->nama_baru ?>
+                                        <?php endforeach ?>
+                                </select>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="container">
@@ -170,6 +183,14 @@
                 return markup;
             }
         });
+        $('#nama_baru').select2({
+                width: '100%',
+                allowClear: true,
+                placeholder: '<i class="fa fa-search"></i> <small>Merk HP..</small>',
+                escapeMarkup: function (markup) {
+                    return markup;
+                }
+        });
     });
 </script>
 <script>
@@ -243,5 +264,41 @@
         var initialLabelText = selectedOption.text().split(' ')[0];
         console.log('Initial Image Path:', initialImagePath); // Debug log
         $('#dynamicLabel').text(initialLabelText); // Set initial label
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Kosongkan opsi di id_baru pada saat halaman dimuat
+        $('#id_baru').empty();
+        $('#id_baru').append('<option value="">Pilih ID Baru</option>');
+
+        // Set opsi id_baru berdasarkan pilihan nama_baru dari URL
+        var selectedNamaBaru = '<?= isset($namaBrand) ? strtolower($namaBrand) : '' ?>';
+        <?php if (isset($namaBrand)): ?>
+            <?php foreach ($all_brand as $dataTipe): ?>
+                var nama_baru = '<?= strtolower($dataTipe->nama_baru) ?>';
+                if (nama_baru.includes(selectedNamaBaru)) {
+                    $('#id_baru').append('<option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>" <?= isset($id_baru) && $id_baru == $dataTipe->id_baru ? 'selected' : '' ?>><?= $dataTipe->nama_baru ?></option>');
+                }
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        // Event listener untuk perubahan nama_baru
+        $('#nama_baru').change(function() {
+            var selectedNamaBaru = $(this).val().toLowerCase();
+
+            // Kosongkan opsi di id_baru
+            $('#id_baru').empty();
+
+            // Tambahkan kembali opsi default
+            $('#id_baru').append('<option value="">Pilih ID Baru</option>');
+
+            <?php foreach ($all_brand as $dataTipe): ?>
+                var nama_baru = '<?= strtolower($dataTipe->nama_baru) ?>';
+                if (nama_baru.includes(selectedNamaBaru)) {
+                    $('#id_baru').append('<option value="<?= $dataTipe->id_baru ?>" data-gambar_baru="<?= $dataTipe->gambar_baru ?>"><?= $dataTipe->nama_baru ?></option>');
+                }
+            <?php endforeach; ?>
+        });
     });
 </script>

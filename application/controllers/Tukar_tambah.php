@@ -26,7 +26,8 @@ class Tukar_tambah extends CI_Controller
             'tipe'      => $this->Tbl_harga_model->get_all_tt(),
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
             'samsung'  => $this->Tbl_harga_model->get_all_baru_android($samsung),
-            'all_brand'=> $this->Tbl_baru_model->get_all_baru(),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'vivo'  => $this->Tbl_harga_model->get_all_baru_android($vivo),
             'oppo'  => $this->Tbl_harga_model->get_all_baru_android($oppo),
             'infinix'  => $this->Tbl_harga_model->get_all_baru_android($infinix),
@@ -67,6 +68,7 @@ class Tukar_tambah extends CI_Controller
 
         $result = $this->Tbl_baru_model->get_image_url($this->input->get('id_baru'));
         $hasil = $this->Tbl_harga_model->get_image_url_bekas($this->input->get('id_tipe'));
+        $namaBrand = $this->input->get('nama_baru');
 
         if ($result) {
             $gambar = $result->gambar_baru; // Adjust according to your database field
@@ -94,6 +96,8 @@ class Tukar_tambah extends CI_Controller
             'id_baru'           => $this->input->get('id_baru'),
             'gambar'            => $gambar,
             'gambarBekas'       => $gambarBekas,
+            'namaBrand'         => $namaBrand,
+            'nama_brand'        => $this->Tbl_harga_model->get_all_nama_baru(),
             'all_brand'         => $this->Tbl_baru_model->get_all_baru(),
             'samsung'           => $this->Tbl_harga_model->get_all_baru_android($samsung),
             'vivo'              => $this->Tbl_harga_model->get_all_baru_android($vivo),

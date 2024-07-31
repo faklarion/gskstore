@@ -210,7 +210,8 @@ class Tbl_harga_model extends CI_Model
         $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
         $this->db->where('tbl_merk.id_merk = 1 AND tbl_harga.id_kondisi = 2');
-        $this->db->order_by('tbl_harga.id_tipe', 'DESC');
+        $this->db->where_not_in('tbl_tipe.id_tipe', array(452, 451, 76, 74, 72, 70, 68, 66, 64, 62, 59, 58, 56, 54, 48, 92, 91, 85, 84, 82, 81, 80, 79, 78, 77, 46, 44, 43, 47, 45));
+        $this->db->order_by('tbl_tipe.nama_tipe', 'ASC');
         return $this->db->get('tbl_harga')->result();
     }
 
@@ -241,7 +242,8 @@ class Tbl_harga_model extends CI_Model
         $this->db->join('tbl_tipe', 'tbl_tipe.id_tipe = tbl_harga.id_tipe');
         $this->db->join('tbl_merk', 'tbl_merk.id_merk = tbl_tipe.id_merk');
         $this->db->where('tbl_merk.id_merk = 1 AND tbl_harga.id_kondisi = 2');
-        $this->db->order_by('tbl_harga.id_tipe', 'DESC');
+        $this->db->where_not_in('tbl_tipe.id_tipe', array(452, 451, 76, 74, 72, 70, 68, 66, 64, 62, 59, 58, 56, 54, 48, 92, 91, 85, 84, 82, 81, 80, 79, 78, 77, 46, 44, 43, 47, 45));
+        $this->db->order_by('tbl_tipe.nama_tipe', 'ASC');
         $this->db->where('tbl_harga.id_harga', $id);
         return $this->db->get('tbl_harga')->row();
     }

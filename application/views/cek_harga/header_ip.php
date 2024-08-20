@@ -4,7 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="<?= base_url('assets/img/gsk-favicon.png') ?>" type="image/x-icon">
     <meta name="description" content="Cek Harga Tukar Tambah HP Kamu di Galery Second Kalimantan.">
-    <meta name="keywords" content="GSK Banjarmasin, GSK Banjarbaru, Galeri Second Kalimantan, Tukar Tambah HP Banjarmasin, Tukar Tambah HP Banjarbaru, GSK">
+    <meta name="keywords" content="GSK Banjarmasin, 
+    tukar tambah Harga tinggi di banjarbaru,
+    tukar tambah hp di banjarbaru,
+    tukar tambah mudah di banjarbaru,
+    tukar tambah Harga tinggi di banjarmasin,
+    tukar tambah hp di banjarmasin,
+    tukar tambah mudah di banjarmasin,
+    tukar tambah Harga tinggi di martapura,
+    tukar tambah hp di martapura,
+    tukar tambah mudah di martapura,
+    GSK Banjarbaru, Galery Second Kalimantan, Tukar Tambah HP Banjarmasin, Tukar Tambah HP Banjarbaru, GSK">
     <title>Dapatkan Penawaran Harga Tukar Tambah Terbaik di Galery Second Kalimantan</title>
     <!-- Font Awesome -->
     <link rel="stylesheet"

@@ -201,7 +201,7 @@
             var id_tipe = $(this).val();
             console.log('Selected ID:', id_tipe); // Debug log
             $.ajax({
-                url: '<?php echo site_url("tukar_tambah_android/get_image_url_bekas"); ?>',
+                url: '<?php echo site_url("tukar_tambah/get_image_url_bekas"); ?>',
                 method: 'POST',
                 data: { id_tipe: id_tipe },
                 success: function (response) {
@@ -248,7 +248,7 @@
                 const firstWord = words[0];
                 console.log('Selected ID:', id_baru); // Debug log
                 $.ajax({
-                    url: '<?php echo site_url("tukar_tambah_android/get_image_url"); ?>',
+                    url: '<?php echo site_url("tukar_tambah/get_image_url"); ?>',
                     method: 'POST',
                     data: { id_baru: id_baru },
                     success: function (response) {
@@ -289,7 +289,7 @@
 
 </script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Kosongkan opsi di id_baru pada saat halaman dimuat
         $('#id_baru').empty();
         $('#id_baru').append('<option value="">Pilih ID Baru</option>');
@@ -306,7 +306,7 @@
         <?php endif; ?>
 
         // Event listener untuk perubahan nama_baru
-        $('#nama_baru').change(function() {
+        $('#nama_baru').change(function () {
             var selectedNamaBaru = $(this).val().toLowerCase();
 
             // Kosongkan opsi di id_baru

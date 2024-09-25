@@ -104,13 +104,13 @@
         </div>
 
         <div class="container" width="50%">
-            <b><a class="text-muted hover-overlay" style="font-family: Arial, Helvetica, sans-serif;"
+            <b><a class="text-muted hover-overlay" style="font-family: 'Poppins', sans-serif;"
                     href="<?php echo site_url('cek_harga/') ?>">Halaman Utama </a></b><i
                 class="fa fa-chevron-right text-muted"></i> <b><?php foreach ($tipe as $row): ?>
-                    <a class="text-muted hover-overlay" style="font-family: Arial, Helvetica, sans-serif;"
+                    <a class="text-muted hover-overlay" style="font-family: 'Poppins', sans-serif;"
                         href="<?php echo site_url('cek_harga/merk/' . $row->id_merk . '') ?>"> <?= $row->nama_merk ?></a> </b> <i
                     class="fa fa-chevron-right text-muted"></i> <b class="text-muted hover-overlay"
-                    style="font-family: Arial, Helvetica, sans-serif;"><?= $row->nama_tipe ?></b>
+                    style="font-family: 'Poppins', sans-serif;"><?= $row->nama_tipe ?></b>
             <?php endforeach ?></b>
         </div>
         <!-- <div class="custom-search my-3">
@@ -122,7 +122,7 @@
             <?php foreach ($tipe as $row): ?>
                 <div class="card" style="background-color: #f0f0f0; border-radius: 10px;">
                     <div class="card-body">
-                        <h3 style="font-family: Arial, Helvetica, sans-serif;" class="card-title">
+                        <h3 style="font-family: 'Poppins', sans-serif;" class="card-title">
                             <b><?= $row->nama_merk ?> <?= $row->nama_tipe ?></b></h3>
                         <?php $_SESSION['id'] = $row->id_tipe; ?>
                         <?php endforeach ?>
@@ -131,21 +131,21 @@
                             enctype="multipart/form-data" autocomplete="off">
                             <div class="radio-button">
                                 <input type="text" value="<?= $row->id_tipe ?>" name="id_tipe" hidden>
-                                <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Memori (Note : Pilih lainnya jika Apple Watch)</small></p>
+                                <p><small class="text-muted" style="font-family: 'Poppins', sans-serif;">Memori (Note : Pilih lainnya jika Apple Watch)</small></p>
                                 <?php foreach($memori as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_memori; ?><?php echo $row->id_memori; ?>" name="memori" value="<?php echo $row->id_memori; ?>">
                                 <label for="<?php echo $row->nama_memori; ?><?php echo $row->id_memori; ?>"><?php echo $row->nama_memori; ?></label>
                                 <?php endforeach; ?>
                             </div>
                             <div class="radio-button">
-                                <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kondisi Handphone</small></p>
+                                <p><small class="text-muted" style="font-family: 'Poppins', sans-serif;">Kondisi Handphone</small></p>
                                 <?php foreach($kondisi as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_kondisi; ?><?php echo $row->id_kondisi; ?>" name="kondisi" value="<?php echo $row->id_kondisi; ?>">
                                 <label for="<?php echo $row->nama_kondisi; ?><?php echo $row->id_kondisi; ?>"><?php echo $row->nama_kondisi; ?></label>
                                 <?php endforeach; ?>
                             </div>
                             <!-- <div class="radio-button">
-                                <p><small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">Kualifikasi Handphone</small></p>
+                                <p><small class="text-muted" style="font-family: 'Poppins', sans-serif;">Kualifikasi Handphone</small></p>
                                 <?php foreach($kualifikasi as $row) : ?>
                                 <input type="radio" id="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>" name="kualifikasi" value="<?php echo $row->id_kualifikasi; ?>">
                                 <label for="<?php echo $row->nama_kualifikasi; ?><?php echo $row->id_kualifikasi; ?>"><?php echo $row->nama_kualifikasi; ?></label>
@@ -153,12 +153,12 @@
                             </div> -->
                                 <br>
                                 <button type="submit" class="btn btn-warning" style="border-radius:10px; width: 300px;"><b
-                                        style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b></button>
+                                        style="font-family: 'Poppins', sans-serif;">Lanjutkan</b></button>
                         </form>
                         <hr>
                     <div class="container">
-                        <p class="text-secondary" style="font-family: Arial, Helvetica, sans-serif;"><small>Harga Jual HP Kamu</small></p>
-                        <h2 style="font-family: Arial, Helvetica, sans-serif;">Rp **********</h2>
+                        <p class="text-secondary" style="font-family: 'Poppins', sans-serif;"><small>Harga Jual HP Kamu</small></p>
+                        <h2 style="font-family: 'Poppins', sans-serif;">Rp **********</h2>
                     </div>
                 </div>
             </div>

@@ -5,14 +5,14 @@
 <body style="background-color: #ffffff;">
     <section>
         <div class="container my-3">
-            <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif;"><b>Cek Harga Tukar Tambah
+            <h3 class="text-center" style="font-family: 'Poppins', sans-serif;"><b>Cek Harga Tukar Tambah
                     Handphone Apple Kamu Disini </b></h3>
         </div>
         <div class="container" width="50%">
-            <b><a class="text-muted hover-overlay" style="font-family: Arial, Helvetica, sans-serif;"
+            <b><a class="text-muted hover-overlay" style="font-family: 'Poppins', sans-serif;"
                     href="<?php echo site_url('tukar_tambah_android/') ?>">Halaman Utama </a></b><i
                 class="fa fa-chevron-right text-muted"></i> <b class="text-muted"
-                style="font-family: Arial, Helvetica, sans-serif;">Apple</b>
+                style="font-family: 'Poppins', sans-serif;">Apple</b>
         </div>
         <!-- <form action="<?php echo site_url('tukar_tambah/tt_action') ?>" method="get" enctype="multipart/form-data"
                 autocomplete="off">
@@ -45,7 +45,7 @@
                 <div class="container">
                     <p class="text-center"><button type="submit" class="btn btn-warning"
                             style="border-radius:10px; width: 300px;">
-                            <b style="font-family: Arial, Helvetica, sans-serif;">Lanjutkan</b>
+                            <b style="font-family: 'Poppins', sans-serif;">Lanjutkan</b>
                         </button></p>
                 </div>
             </form> -->
@@ -111,7 +111,7 @@
                     <div class="container">
                         <p class="text-center"><button type="submit" class="btn btn-warning"
                                 style="border-radius:10px; width: 300px;">
-                                <b style="font-family: Arial, Helvetica, sans-serif;">CEK SEKARANG</b>
+                                <b style="font-family: 'Poppins', sans-serif;">CEK SEKARANG</b>
                             </button></p>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
         $hargaTT = $hargaBaru - $hargaTipe;
         ?>
         <div class="container">
-            <h4 class="text-center">
+            <h4 class="text-center" style="font-family: 'Poppins', sans-serif;">
                 Harga Estimasi Tukar Tambah Adalah <?= rupiah($hargaTT); ?>
             </h4>
         </div>
@@ -147,11 +147,11 @@
         <!--<ul class="dropdown-menu txtcountry" role="menu" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>-->
 
         <div class="container">
-            <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">Harga yang tertera adalah harga
+            <p class="text-center" style="font-family: 'Poppins', sans-serif;">Harga yang tertera adalah harga
                 estimasi tukar tambah dan bisa berubah sewaktu waktu.
                 <br>Hubungi call center sekarang sebelum harga berubah.
             </p>
-            <p class="text-center"><a target="_blank" href="https://wa.me/628115546464"
+            <p class="text-center" style="font-family: 'Poppins', sans-serif;"><a target="_blank" href="https://wa.me/628115546464"
                     class="btn btn-sm btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL
                     CENTER</a></p>
         </div>

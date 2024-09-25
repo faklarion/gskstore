@@ -6,7 +6,7 @@
     <section>
         <div class="container my-3 justify-content-center">
             <div>
-                <h2 class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+                <h2 class="text-center" style="font-family: 'Poppins', sans-serif;">
                     <b>Tukar Tambah HP Kamu</b>
                 </h2>
             </div>
@@ -53,7 +53,7 @@
             </div>
             </div>
                     
-            <!-- <p class="text-center" style="font-family: Arial, Helvetica, sans-serif;">
+            <!-- <p class="text-center" style="font-family: 'Poppins', sans-serif;">
                 Harga yang tertera adalah harga estimasi Handphone mulus like new
                 <br> jika ada minus fungsi atau minus fisik harga akan berubah sesuai kerusakan.
             </p>   -->          

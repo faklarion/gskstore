@@ -73,7 +73,7 @@
             <img class="img-fluid" src="<?= base_url('assets/img/banner.jpg') ?>" width="100%">
         </div>
         <div>
-            <h2 style="font-family: Arial, Helvetica, sans-serif;" class="text-center">
+            <h2 style="font-family: 'Poppins', sans-serif;" class="text-center">
                 <?php foreach ($tipe as $row): ?>
                    
                 <?php endforeach ?>
@@ -87,10 +87,10 @@
             </h2>
         </div>
         <div class="container" width="50%">
-            <b><a class="text-muted hover-overlay" style="font-family: Arial, Helvetica, sans-serif;"
+            <b><a class="text-muted hover-overlay" style="font-family: 'Poppins', sans-serif;"
                     href="<?php echo site_url('cek_harga/') ?>">Halaman Utama </a></b><i
                 class="fa fa-chevron-right text-muted"></i> <b class="text-muted"
-                style="font-family: Arial, Helvetica, sans-serif;"><?php foreach ($tipe as $row): ?> 
+                style="font-family: 'Poppins', sans-serif;"><?php foreach ($tipe as $row): ?> 
                 <?php endforeach ?>
                 <?php $dataTipe = $this->Tbl_harga_model->get_all_merk_by_id(@$row->id_merk); 
                         foreach ($dataTipe as $list) {

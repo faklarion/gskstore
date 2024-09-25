@@ -3,6 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="<?= base_url('assets/img/gsk-favicon.png') ?>" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="description" content="Cek Harga Tukar Tambah HP Kamu di Galery Second Kalimantan.">
     <meta name="keywords" content="GSK Banjarmasin, 
     tukar tambah Harga tinggi di banjarbaru,

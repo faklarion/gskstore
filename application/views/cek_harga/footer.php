@@ -1,3 +1,4 @@
+
 <style>
         /* Footer styles */
         .footer {
@@ -13,38 +14,39 @@
 <div class="row">
     <div class="col-md-4">
         <div class="p-3">
-            <img src="<?= base_url('assets/img/syihab.png') ?>" width="150px">
-            <p></p>
-            <p class="text-justify text-secondary">
+            <h5 style="font-family: 'Poppins', sans-serif;">
+                <b>TENTANG KAMI</b>
+            </h5>
+            <p class="text-justify text-secondary" style="font-family: 'Poppins', sans-serif;">
                 Syihab Adalah Retail Smartphone Terlengkap dan termurah di kalimantan Sejak 2007. Official Partner dari
                 berbagai Produk Smartphone dari brand – brand besar seperti Apple Authorised Reseller, Samsung, OPPO,
                 VIVO, REALME, XIAOMI, INFINIX dll
             </p>
-            <p class="text-justify text-secondary">
+            <p class="text-justify text-secondary" style="font-family: 'Poppins', sans-serif;">
                 Selain produk Smartphone di syihab juga menyediakan Produk – produk lain
                 seperti : Laptop, Tablet, Smarrwatch, TWS & akesesoris lainnya
             </p>
-            <p class="text-justify text-secondary">
+            <p class="text-justify text-secondary" style="font-family: 'Poppins', sans-serif;">
                 Jika anda butuh bantuan atau memiliki masukan silahkan hubungi kami
             </p>
-            <p class="text-justify text-secondary">
+            <p class="text-justify text-secondary" style="font-family: 'Poppins', sans-serif;">
                 Jam operasional store :
                 09.00 – 22.00 (Senin – Minggu)
             </p>
-            <p class="text-justify text-secondary">
+            <p class="text-justify text-secondary" style="font-family: 'Poppins', sans-serif;">
                 WA Callcenter : +62 811-5546-464
             </p>
         </div>
     </div>
     <div class="col-md-4">
         <div class="p-3">
-            <h5>
+            <h5 style="font-family: 'Poppins', sans-serif;">
                 <b>KAMI MENERIMA</b>
             </h5>
             <img src="<?= base_url('assets/img/footerbank.png') ?>" alt="" width="70%">
         </div>
         <div class="p-3">
-            <h5>
+            <h5 style="font-family: 'Poppins', sans-serif;">
                 <b>JASA PENGIRIMAN</b>
             </h5>
             <img src="<?= base_url('assets/img/kurir.png') ?>" alt="" width="35%">
@@ -52,7 +54,7 @@
     </div>
     <div class="col-md-4">
         <div class="p-3">
-            <h5>
+            <h5 style="font-family: 'Poppins', sans-serif;">
                 <b>TEMUKAN KAMI</b>
             </h5>
             <a href="https://www.tiktok.com/@syihabstore_" target="_blank" style="color: black;"><i
@@ -61,19 +63,19 @@
                     class="fab fa-instagram"></i></a>
         </div>
         <div class="p-3">
-            <h5>
+            <h5 style="font-family: 'Poppins', sans-serif;">
                 <b>MARKETPLACE KAMI</b>
             </h5>
             <a href="https://shopee.co.id/syihabgroupstore" target="_blank" style="color: black;">
                 <img src="<?php echo base_url('assets/img/shp.png')?>" alt="">
             </a>
-            <a href="https://www.tokopedia.com/syihabgroupstore" target="_blank" style="color: black;">
+            <!-- <a href="https://www.tokopedia.com/syihabgroupstore" target="_blank" style="color: black;">
                 <img src="<?php echo base_url('assets/img/tokped.png')?>" alt="">
-            </a>
+            </a> -->
         </div>
     </div>
 </div>
 
-<div class="footer">
+<div class="footer" style="font-family: 'Poppins', sans-serif;">
     &copy; <?php echo DATE('Y'); ?> ZED Group. All rights reserved.
 </div>

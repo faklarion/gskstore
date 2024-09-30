@@ -54,9 +54,12 @@
             <div class="container my-2">
                 <div class="row">
                     <div class="col-6 p-1">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Apple</h5>
+                        <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                                <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                    HP Lama Kamu
+                                </h6>
+                                <h5 class="card-title text-center mt-2">Apple</h5>
                                 <p class="text-center">
                                     <img id="displayImageBekas"
                                         src="<?php echo base_url("assets/hptipe/$gambarBekas"); ?>"
@@ -78,9 +81,12 @@
                         </div>
                     </div>
                     <div class="col-6 p-1">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="card-title text-center" id="dynamicLabel">Apple</h5>
+                    <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                                <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                    HP Baru Yang Kamu Mau
+                                </h6>
+                                <h5 class="card-title text-center mt-2" id="dynamicLabel">Apple</h5>
                                 <p class="text-center">
                                     <img id="displayImage" src="<?php echo base_url("assets/hpbaru/$gambar"); ?>"
                                         alt="Selected Image">
@@ -133,9 +139,12 @@
         $hargaTT = $hargaBaru - $hargaTipe;
         ?>
         <div class="container">
-            <h4 class="text-center" style="font-family: 'Poppins', sans-serif;">
-                Harga Estimasi Tukar Tambah Adalah <?= rupiah($hargaTT); ?>
-            </h4>
+                <h4 class="text-center" style="font-family: 'Poppins', sans-serif;">
+                    Harga Estimasi Tukar Tambah Adalah 
+                </h4>
+                <h4 class="text-center" style="font-family: 'Poppins', sans-serif; background-color: red; color: white; padding: 10px; border-radius: 20px;">
+                    <?= rupiah($hargaTT); ?>
+                </h4>
         </div>
         <br>
         <!--<div class="custom-search">

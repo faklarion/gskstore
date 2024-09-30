@@ -22,11 +22,14 @@
             <div class="container my-2">
                 <div class="row">
                     <div class="col-6 p-1">
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center"><?php echo $merk ?></h5>
+                        <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                                <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                    HP Lama Kamu
+                                </h6>
+                                <h5 class="card-title text-center mt-2"><?= $merk ?></h5>
                                 <p class="text-center">
-                                    <img id="displayImageBekas" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
+                                    <img id="displayImageBekas" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
                             
@@ -44,11 +47,14 @@
                         </div>
                     </div>
                     <div class="col-6 p-1">
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center" id="dynamicLabel"><?php echo $merk?></h5>
+                        <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                                <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                    HP Baru Yang Kamu Mau
+                                </h6>
+                                <h5 class="card-title text-center mt-2" id="dynamicLabel"><?= $merk ?></h5>
                                 <p class="text-center">
-                                    <img id="displayImage" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
+                                    <img id="displayImage" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
                             

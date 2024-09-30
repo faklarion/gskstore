@@ -20,16 +20,20 @@
             <div class="container my-2">
                 <div class="row">
                     <div class="col-6 p-1">
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Apple</h5>
+                        <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                            <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                HP Lama Kamu
+                            </h6>
+                                <h5 class="card-title text-center mt-2">Apple</h5>
                                 <p class="text-center">
-                                    <img id="displayImageBekas" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
+                                    <img id="displayImageBekas" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
-                            
+
+                            <!-- Select element at the bottom -->
                             <select name="id_tipe" class="js-example-basic-single" id="id_tipe" required>
-                                <option value="">Cari Harga handphone yang ingin kamu jual </option>
+                                <option value="">Cari Harga handphone yang ingin kamu jual</option>
                                 <?php foreach ($tipe as $dataTipe): ?>
                                     <option value="<?= $dataTipe->id_harga ?>" data-gambar_tipe="<?= $dataTipe->gambar_tipe ?>">
                                         <small>
@@ -37,34 +41,39 @@
                                         </small>
                                     </option>
                                 <?php endforeach ?>
-                                </optgroup>
                             </select>
                         </div>
+
                     </div>
                     <div class="col-6 p-1">
-                        <div class="card mb-2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center" id="dynamicLabel">Apple</h5>
+                        <div class="card mb-2" style="display: flex; flex-direction: column; height: 100%; min-height: 300px;">
+                            <div style="flex-grow: 1;">
+                                <h6 class="card-title text-center" style="font-family: 'Poppins', sans-serif; margin: 0; border: 1px solid gray; border-radius: 10px; padding:5px; background-color: gray; color: white;">
+                                    HP Baru Yang Kamu Mau
+                                </h6>
+                                <h5 class="card-title text-center mt-2" id="dynamicLabel">Apple</h5>
                                 <p class="text-center">
-                                    <img id="displayImage" src="<?php echo base_url("assets/hpbaru/ilustrasihp.jpg"); ?>" alt="Selected Image">
+                                    <img id="displayImage" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
 
-                            <div class="select-container">
-                                <select name="nama_baru" class="js-example-basic-single" id="nama_baru" required>
-                                    <option value="">Pilih Nama Baru</option>
-                                    <?php foreach ($nama_brand as $dataTipe): ?>
-                                        <option value="<?= $dataTipe->nama_merk_baru ?>">
-                                            <small><?= $dataTipe->nama_merk_baru ?></small>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                        <div class="select-container" style="margin-top: auto;">
+                            <select name="nama_baru" class="js-example-basic-single" id="nama_baru" required>
+                                <option value="">Pilih Nama Baru</option>
+                                <?php foreach ($nama_brand as $dataTipe): ?>
+                                    <option value="<?= $dataTipe->nama_merk_baru ?>">
+                                        <small><?= $dataTipe->nama_merk_baru ?></small>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
 
-                                <select name="id_baru" class="js-example-basic-single" id="id_baru" required>
-                                    <option value="">Pilih ID Baru</option>
-                                </select>
-                            </div>
+                            <select name="id_baru" class="js-example-basic-single" id="id_baru" required style="margin-top: 10px;">
+                                <option value="">Pilih ID Baru</option>
+                            </select>
                         </div>
+                        
+                    </div>
+
                     </div>
                     <div class="container">
                         <p class="text-center"><button type="submit" class="btn btn-warning"

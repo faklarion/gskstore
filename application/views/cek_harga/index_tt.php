@@ -28,29 +28,63 @@
                 </div>
             </div>
             
+            <!--  Tampilan Untuk di Mobile-->
             <div class="container overflow-auto">
+
             <div class="row flex-nowrap">
-                    <?php foreach ($merk_tt as $row): ?>
                     <div class="col-4 mt-4 d-block d-sm-none">
-                                    <a href="<?= site_url($row->link_tt) ?>">
+                                    <a href="<?= site_url('tukar_tambah/') ?>">
                                         <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
-                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                                <img src="<?= base_url('assets/img/Apple.png') ?>" width="90%">
                                         </div>
                                     </a>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/oppo/') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/Oppo.png') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/vivo/') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/Vivo.png') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/realme/') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/Realme.png') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
             </div>
             <div class="row flex-nowrap">
-                    <?php foreach ($merk_tt_2 as $row): ?>
-                    <div class="col-4 mt-2 d-block d-sm-none">
-                                    <a href="<?= site_url($row->link_tt) ?>">
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/samsung/') ?>">
                                         <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
-                                                <img src="<?= base_url('assets/img/' . $row->image . '') ?>" width="90%">
+                                                <img src="<?= base_url('assets/img/Samsung.png') ?>" width="90%">
                                         </div>
                                     </a>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/infinix/') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/Infinix.png') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
+                    <div class="col-4 mt-4 d-block d-sm-none">
+                                    <a href="<?= site_url('tukar_tambah_android/xiaomi/') ?>">
+                                        <div class="card justify-content-center align-items-center" style="background-color: #f0f0f0; border-radius: 12px; height:100px; width:100px;">
+                                                <img src="<?= base_url('assets/img/Xiaomi.png') ?>" width="90%">
+                                        </div>
+                                    </a>
+                    </div>
             </div>
+            <!-- END -->
             </div>
                     
             <!-- <p class="text-center" style="font-family: 'Poppins', sans-serif;">

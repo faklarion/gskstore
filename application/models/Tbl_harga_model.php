@@ -96,7 +96,7 @@ class Tbl_harga_model extends CI_Model
 
     function get_all_merk_1()
     {
-        $this->db->limit(4);
+        $this->db->limit(5);
         $this->db->order_by('id_merk', 'ASC');
         return $this->db->get('tbl_merk')->result();
     }
@@ -104,8 +104,8 @@ class Tbl_harga_model extends CI_Model
     
     function get_all_merk_2()
     {
-        $this->db->where('id_merk >= 5');
-        $this->db->limit(4);
+        $this->db->where('id_merk >= 6');
+        $this->db->limit(5);
         $this->db->order_by('id_merk', 'ASC');
         return $this->db->get('tbl_merk')->result();
     }

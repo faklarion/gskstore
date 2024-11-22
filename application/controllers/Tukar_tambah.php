@@ -27,6 +27,7 @@ class Tukar_tambah extends CI_Controller
             'tipe_baru' => $this->Tbl_harga_model->get_all_baru(),
             'samsung'  => $this->Tbl_harga_model->get_all_baru_android($samsung),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'vivo'  => $this->Tbl_harga_model->get_all_baru_android($vivo),
             'oppo'  => $this->Tbl_harga_model->get_all_baru_android($oppo),
@@ -46,6 +47,18 @@ class Tukar_tambah extends CI_Controller
             echo json_encode(['gambar_baru' => $result->gambar_baru]); // Adjust according to your database field
         } else {
             echo json_encode(['gambar_baru' => null]);
+        }
+    }
+
+    public function get_image_url_second() {
+        $id_second = $this->input->post('id_second');
+        // Fetch the image URL from the database based on the id_baru
+        $result = $this->Tbl_baru_model->get_image_url_second($id_second); // Replace with your method to fetch image URL
+
+        if ($result) {
+            echo json_encode(['gambar_second' => $result->gambar_second]); // Adjust according to your database field
+        } else {
+            echo json_encode(['gambar_second' => null]);
         }
     }
 
@@ -99,6 +112,7 @@ class Tukar_tambah extends CI_Controller
             'namaBrand'         => $namaBrand,
             'nama_brand'        => $this->Tbl_harga_model->get_all_nama_baru(),
             'all_brand'         => $this->Tbl_baru_model->get_all_baru(),
+            'all_second'        => $this->Tbl_baru_model->get_all_second(),
             'samsung'           => $this->Tbl_harga_model->get_all_baru_android($samsung),
             'vivo'              => $this->Tbl_harga_model->get_all_baru_android($vivo),
             'oppo'              => $this->Tbl_harga_model->get_all_baru_android($oppo),

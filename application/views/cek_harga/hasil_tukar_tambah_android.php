@@ -163,7 +163,7 @@
                     <br>
                     <br>
                     <b>Upgrade Sekarang, hemat lebih banyak ! Tukar tambah handphonemu hari ini.</b></p>
-                    <p class="text-center" style="font-family: 'Poppins', sans-serif;"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-sm btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
+                    <p class="text-center" style="font-family: 'Poppins', sans-serif;"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-m btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
             </div>
         </div>
     </section>

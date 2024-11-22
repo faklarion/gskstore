@@ -123,6 +123,52 @@ class Tukar_tambah extends CI_Controller
         $this->load->view('cek_harga/hasil_tukar_tambah.php', $data);
     }
 
+    public function tt_action_second() {
+
+        $result = $this->Tbl_baru_model->get_image_url_second($this->input->get('id_second'));
+        $hasil = $this->Tbl_harga_model->get_image_url_bekas($this->input->get('id_tipe_second'));
+        $namaBrand = $this->input->get('nama_second');
+
+        if ($result) {
+            $gambar = $result->gambar_second; // Adjust according to your database field
+        } else {
+            $gambar = 'ilustrasihp.jpg';
+        }
+
+        if ($hasil) {
+            $gambarBekas = $hasil->gambar_tipe; // Adjust according to your database field
+        } else {
+            $gambarBekas = 'ilustrasihp.jpg';
+        }
+
+        $samsung    = 'Samsung';
+        $vivo       = 'Vivo';
+        $oppo       = 'Oppo';
+        $infinix    = 'Infinix';
+        $realme     = 'Realme';
+        $xiaomi     = 'Xiaomi';
+    
+        $data = array(
+            'tipe'              => $this->Tbl_harga_model->get_all_tt(),
+            'tipe_baru'         => $this->Tbl_harga_model->get_all_baru(),
+            'id_tipe_second'    => $this->input->get('id_tipe_second'),
+            'id_second'         => $this->input->get('id_second'),
+            'gambar'            => $gambar,
+            'gambarBekas'       => $gambarBekas,
+            'namaBrand'         => $namaBrand,
+            'nama_brand'        => $this->Tbl_harga_model->get_all_nama_baru(),
+            'all_brand'         => $this->Tbl_baru_model->get_all_baru(),
+            'all_second'        => $this->Tbl_baru_model->get_all_second(),
+            'samsung'           => $this->Tbl_harga_model->get_all_baru_android($samsung),
+            'vivo'              => $this->Tbl_harga_model->get_all_baru_android($vivo),
+            'oppo'              => $this->Tbl_harga_model->get_all_baru_android($oppo),
+            'infinix'           => $this->Tbl_harga_model->get_all_baru_android($infinix),
+            'realme'            => $this->Tbl_harga_model->get_all_baru_android($realme),
+            'xiaomi'            => $this->Tbl_harga_model->get_all_baru_android($xiaomi),
+        );
+        $this->load->view('cek_harga/hasil_tukar_tambah_second.php', $data);
+    }
+
     public function instagram() {
         $this->load->view('cek_harga/instagram.php');
     }

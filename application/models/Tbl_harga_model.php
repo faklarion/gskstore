@@ -308,6 +308,14 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_baru')->row();
     }
 
+    function get_all_second_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_second', 'DESC');
+        $this->db->where('id_second', $id);
+        return $this->db->get('tbl_second')->row();
+    }
+
     // get data by id
     function get_by_id($id)
     {

@@ -25,10 +25,10 @@ class Tbl_second extends CI_Controller
         
         if ($q <> '') {
             $config['base_url'] = base_url() . '.php/c_url/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'index.php/Tbl_second/index.html?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'index.php/tbl_second/index.html?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'index.php/Tbl_second/index/';
-            $config['first_url'] = base_url() . 'index.php/Tbl_second/index/';
+            $config['base_url'] = base_url() . 'index.php/tbl_second/index/';
+            $config['first_url'] = base_url() . 'index.php/tbl_second/index/';
         }
 
         $config['per_page'] = 10;
@@ -47,7 +47,7 @@ class Tbl_second extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->template->load('template','Tbl_second/Tbl_second_list', $data);
+        $this->template->load('template','tbl_second/tbl_second_list', $data);
     }
 
     public function read($id) 
@@ -60,7 +60,7 @@ class Tbl_second extends CI_Controller
 		'harga_second' => $row->harga_second,
 		'gambar_second' => $row->gambar_second,
 	    );
-            $this->template->load('template','Tbl_second/Tbl_second_read', $data);
+            $this->template->load('template','tbl_second/tbl_second_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('Tbl_second'));
@@ -76,20 +76,20 @@ class Tbl_second extends CI_Controller
         $data = array(
             'sheet_data' => $values,
         );
-        $this->template->load('template','Tbl_second/Tbl_second_read_sheets', $data);
+        $this->template->load('template','tbl_second/tbl_second_read_sheets', $data);
     }
 
     public function create() 
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('Tbl_second/create_action'),
+            'action' => site_url('tbl_second/create_action'),
             'id_second' => set_value('id_second'),
             'nama_second' => set_value('nama_second'),
             'harga_second' => set_value('harga_second'),
             'gambar_second' => set_value('gambar_second'),
 	);
-        $this->template->load('template','Tbl_second/Tbl_second_form', $data);
+        $this->template->load('template','tbl_second/tbl_second_form', $data);
     }
     
     public function create_action() 
@@ -119,13 +119,13 @@ class Tbl_second extends CI_Controller
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('Tbl_second/update_action'),
+                'action' => site_url('tbl_second/update_action'),
                 'id_second' => set_value('id_second', $row->id_second),
                 'nama_second' => set_value('nama_second', $row->nama_second),
                 'harga_second' => set_value('harga_second', $row->harga_second),
                 'gambar_second' => set_value('gambar_second', $row->gambar_second),
 	    );
-            $this->template->load('template','Tbl_second/Tbl_second_form', $data);
+            $this->template->load('template','tbl_second/tbl_second_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('Tbl_second'));

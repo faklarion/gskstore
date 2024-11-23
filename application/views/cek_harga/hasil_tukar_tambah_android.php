@@ -189,10 +189,10 @@
     <!-- Second ke Baru -->
 
     <div class="container">
-        <input type="hidden" name="id_merk" value="<?php echo $idMerk ?>">
-        <input type="hidden" name="nama_merk" value="<?php echo $merk ?>">
             <form action="<?php echo site_url('tukar_tambah_android/tt_action_second') ?>" method="get" enctype="multipart/form-data" id="ttsecond"
                 autocomplete="off">
+                <input type="hidden" name="id_merk" value="<?php echo $idMerk ?>">
+                <input type="hidden" name="nama_merk" value="<?php echo $merk ?>">
                 <div class="container my-2">
                     <div class="row">
                         <div class="col-6 p-1">
@@ -566,9 +566,7 @@
         });
     });
 </script>
-
-
-    <script>
+<script>
         $(document).ready(function() {
             // Kosongkan opsi di id_second pada saat halaman dimuat
             $('#id_second').empty();
@@ -591,8 +589,8 @@
                 <?php endforeach; ?>
             });
         });
-    </script>
-    <script>
+</script>
+<script>
         // Menampilkan popup setelah 3 detik
         window.onload = function() {
             setTimeout(function() {

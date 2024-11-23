@@ -262,7 +262,7 @@
 
 
         <?php
-        $tipe = $this->Tbl_harga_model->get_all_tt_by_id($this->input->get('id_tipe_second'));
+        $tipe = $this->Tbl_harga_model->get_all_tt_by_id_android($this->input->get('id_tipe'), $this->input->get('id_merk'));
         $second = $this->Tbl_harga_model->get_all_second_by_id($this->input->get('id_second'));
 
         // Inisialisasi nilai default

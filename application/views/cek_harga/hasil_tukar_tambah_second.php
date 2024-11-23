@@ -225,7 +225,7 @@
                                     </h6>
                                     <h5 class="card-title text-center mt-2">Apple</h5>
                                     <p class="text-center">
-                                        <img id="displayImageBekasSecond" src="<?php echo base_url("assets/hptipe/$gambarBekas"); ?>" alt="Selected Image">
+                                        <img id="displayImageBekasSecond"   src="<?php echo base_url("assets/hptipe/$gambarBekas"); ?>" alt="Selected Image">
                                     </p>
                                 </div>
 
@@ -250,7 +250,7 @@
                                     </h6>
                                     <h5 class="card-title text-center mt-2" id="dynamicLabel">Apple</h5>
                                     <p class="text-center">
-                                        <img id="displayImageSecond" src="<?php echo base_url("assets/hpsecond/$gambar"); ?>"
+                                        <img id="displayImageSecond"  src="<?php echo base_url("assets/hpsecond/$gambar"); ?>"
                                             alt="Selected Image">
                                     </p>
                                 </div>

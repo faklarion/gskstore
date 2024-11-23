@@ -125,7 +125,7 @@
                             </h6>
                                 <h5 class="card-title text-center mt-2">Apple</h5>
                                 <p class="text-center">
-                                    <img id="displayImageBekasSecond" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
+                                    <img id="displayImageBekasSecond"  src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
 
@@ -151,12 +151,12 @@
                                 </h6>
                                 <h5 class="card-title text-center mt-2" id="dynamicLabel">Apple</h5>
                                 <p class="text-center">
-                                    <img id="displayImageSecond" src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
+                                    <img id="displayImageSecond"  src="<?php echo base_url('assets/hpbaru/ilustrasihp.jpg'); ?>" alt="Selected Image">
                                 </p>
                             </div>
 
                         <div class="select-container" style="margin-top: auto;">
-                        <select name="nama_second" class="js-example-basic-single" id="nama_second" required>
+                                <select name="nama_second" class="js-example-basic-single" id="nama_second" required>
                                     <option value="">Pilih Merk HP..</option>
                                     <option value="iPhone">iPhone</option>
                                 </select>

@@ -234,6 +234,11 @@ class Tbl_harga_model extends CI_Model
         return $this->db->get('tbl_tipe')->row();
     }
 
+    public function get_image_url_second($id) {
+        $this->db->where('tbl_second.id_second', $id);
+        return $this->db->get('tbl_second')->row();
+    }
+
     function get_all_tt_by_id($id)
     {
         $this->db->join('tbl_memori', 'tbl_memori.id_memori = tbl_harga.id_memori');

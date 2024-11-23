@@ -52,6 +52,12 @@ class Tbl_baru_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    function get_second_by_id($id)
+    {
+        $this->db->where('id_second', $id);
+        return $this->db->get('tbl_second')->row();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

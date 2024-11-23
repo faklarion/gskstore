@@ -44,6 +44,7 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -67,6 +68,7 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -91,6 +93,7 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -114,6 +117,7 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -137,6 +141,7 @@ class Tukar_tambah_android extends CI_Controller
             'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
             'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
@@ -162,6 +167,7 @@ class Tukar_tambah_android extends CI_Controller
             'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
             'nama_brand' => $this->Tbl_harga_model->get_all_nama_baru(),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
             'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
@@ -205,6 +211,7 @@ class Tukar_tambah_android extends CI_Controller
             'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
             'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
             'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
             'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
             'id_tipe' => $this->input->get('id_tipe'),
             'id_baru' => $this->input->get('id_baru'),
@@ -214,6 +221,53 @@ class Tukar_tambah_android extends CI_Controller
             'gambarBekas' => $gambarBekas,
         );
         $this->load->view('cek_harga/hasil_tukar_tambah_android.php', $data);
+    }
+
+    public function tt_action_second()
+    {
+
+        $result = $this->Tbl_baru_model->get_image_url_second($this->input->get('id_second'));
+        $hasil = $this->Tbl_harga_model->get_image_url_bekas($this->input->get('id_tipe_second'));
+        $namaBrand = $this->input->get('nama_second');
+
+        if ($result) {
+            $gambar = $result->gambar_second; // Adjust according to your database field
+        } else {
+            $gambar = 'ilustrasihp.jpg';
+        }
+
+        if ($hasil) {
+            $gambarBekas = $hasil->gambar_tipe; // Adjust according to your database field
+        } else {
+            $gambarBekas = 'ilustrasihp.jpg';
+        }
+
+        $merk = $this->input->get('nama_merk');
+        $idMerk = $this->input->get('id_merk');
+
+        $data = array(
+            'tipe' => $this->Tbl_harga_model->get_all_tt_android($idMerk),
+            'samsung' => $this->Tbl_harga_model->get_all_baru_android($this->samsung),
+            'vivo' => $this->Tbl_harga_model->get_all_baru_android($this->vivo),
+            'namaBrand'         => $namaBrand,
+            'nama_brand'        => $this->Tbl_harga_model->get_all_nama_baru(),
+            'oppo' => $this->Tbl_harga_model->get_all_baru_android($this->oppo),
+            'infinix' => $this->Tbl_harga_model->get_all_baru_android($this->infinix),
+            'realme' => $this->Tbl_harga_model->get_all_baru_android($this->realme),
+            'xiaomi' => $this->Tbl_harga_model->get_all_baru_android($this->xiaomi),
+            'all_brand' => $this->Tbl_baru_model->get_all_baru(),
+            'all_second' => $this->Tbl_baru_model->get_all_second(),
+            'apple' => $this->Tbl_harga_model->get_all_baru_android($this->apple),
+            'id_tipe' => $this->input->get('id_tipe'),
+            'id_baru' => $this->input->get('id_baru'),
+            'id_tipe_second' => $this->input->get('id_tipe_second'),
+            'id_second' => $this->input->get('id_second'),
+            'merk' => $merk,
+            'idMerk' => $idMerk,
+            'gambar' => $gambar,
+            'gambarBekas' => $gambarBekas,
+        );
+        $this->load->view('cek_harga/hasil_tukar_tambah_android_second.php', $data);
     }
 
     public function get_image_url_bekas()
@@ -228,6 +282,21 @@ class Tukar_tambah_android extends CI_Controller
             echo json_encode(array('gambar_tipe' => $data->gambar_tipe));
         } else {
             echo json_encode(array('gambar_tipe' => null));
+        }
+    }
+
+    public function get_image_url_second()
+    {
+        $id_second = $this->input->post('id_second');
+        log_message('debug', 'Received id_second: ' . $id_second);
+        // Fetch the data based on id_harga from the database
+        $data = $this->Tbl_harga_model->get_image_url_second($id_second);
+        log_message('debug', 'Fetched data: ' . print_r($data, true));
+
+        if ($data) {
+            echo json_encode(array('gambar_second' => $data->gambar_second));
+        } else {
+            echo json_encode(array('gambar_second' => null));
         }
     }
 

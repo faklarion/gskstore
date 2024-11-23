@@ -256,11 +256,10 @@
                                 </div>
                                 <div class="select-container">
                                     <select name="nama_second" class="js-example-basic-single" id="nama_second" required>
-                                        <option value="">Pilih Nama Second</option>
-                                        <?php foreach ($nama_brand as $dataTipe): ?>
-                                            <option value="<?= $dataTipe->nama_merk_baru ?>"  <?php if ($dataTipe->nama_merk_baru == $namaBrand)
-                                                echo 'selected="selected"'; ?>><?= $dataTipe->nama_merk_baru ?> </option>
-                                        <?php endforeach; ?>
+                                        <option value="">Pilih Merk HP..</option>
+                                        <option value="iPhone"  <?php if ('iPhone' == $namaBrand)
+                                                echo 'selected="selected"'; ?>>iPhone</option>
+                                        
                                     </select>
 
                                     <select name="id_second" class="js-example-basic-single" id="id_second" required>

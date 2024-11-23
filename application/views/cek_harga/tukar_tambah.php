@@ -156,14 +156,10 @@
                             </div>
 
                         <div class="select-container" style="margin-top: auto;">
-                            <select name="nama_second" class="js-example-basic-single" id="nama_second" required>
-                                <option value="">Pilih Nama Baru</option>
-                                <?php foreach ($nama_brand as $dataTipe): ?>
-                                    <option value="<?= $dataTipe->nama_merk_baru ?>">
-                                        <small><?= $dataTipe->nama_merk_baru ?></small>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
+                        <select name="nama_second" class="js-example-basic-single" id="nama_second" required>
+                                    <option value="">Pilih Merk HP..</option>
+                                    <option value="iPhone">iPhone</option>
+                                </select>
 
                             <select name="id_second" class="js-example-basic-single" id="id_second" required style="margin-top: 10px;">
                                 <option value="">Pilih ID Baru</option>

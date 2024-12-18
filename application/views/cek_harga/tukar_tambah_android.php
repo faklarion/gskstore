@@ -185,13 +185,14 @@
         </section>
         <!-- END Second ke Second -->
 
-        <div class="container">
+    <div class="container">
             <p class="text-center" style="font-family: 'Poppins', sans-serif;">Harga yang tertera adalah harga estimasi tukar tambah dan bisa berubah sewaktu waktu.
-            <br>
-            <br>
-            <b>Upgrade Sekarang, hemat lebih banyak ! Tukar tambah handphonemu hari ini.</b></p>
-            <p class="text-center" style="font-family: 'Poppins', sans-serif;"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-m btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
+        <div class="text-center">
+            <p style="display: inline-block; font-family: 'Poppins', sans-serif;"><b>Upgrade Sekarang, hemat lebih banyak! Tukar tambah handphonemu hari ini.</b></p>
+            <h4 style="display: inline-block;"><i class="fa fa-arrow-down" aria-hidden="true"></i></h4> <h4 style="display: inline-block;"><i class="fa fa-arrow-down" aria-hidden="true"></i></h4> <h4 style="display: inline-block;"><i class="fa fa-arrow-down" aria-hidden="true"></i></h4>
         </div>
+            <p class="text-center" style="font-family: 'Poppins', sans-serif;"><a target="_blank" href="https://wa.me/628115546464" class="btn btn-m btn-success"><i class="fab fa-whatsapp" aria-hidden="true"></i> HUBUNGI CALL CENTER</a></p>
+    </div>
 
     <script>
         $(document).ready(function () {
